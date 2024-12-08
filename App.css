@@ -1,0 +1,21 @@
+.heading {
+  color: black;
+  display: flex;
+  justify-content: space-between;
+  background: linear-gradient(to right, #7554fb, #954ec1, #b470df);
+
+  padding: 5px;
+  border: 1px solid #7554fb;
+}
+.nav-items > ul {
+  display: flex;
+}
+
+.nav-items > ul > li {
+  padding: 10;
+  list-style-type: none;
+}
+/* 
+.body {
+  border: 1px solid brown;
+} */
