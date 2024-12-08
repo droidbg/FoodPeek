@@ -1,0 +1,26 @@
+{
+  "name": "zonion-app",
+  "version": "1.0.0",
+  "description": "This is a food delivery website",
+  "main": "App.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/droidbg/Zonion.git"
+  },
+  "author": "Binni & Gorika",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/droidbg/Zonion/issues"
+  },
+  "homepage": "https://github.com/droidbg/Zonion#readme",
+  "devDependencies": {
+    "parcel": "^2.13.2"
+  },
+  "dependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  }
+}
