@@ -1,0 +1,53 @@
+.heading {
+  color: black;
+  display: flex;
+  justify-content: space-between;
+  background: linear-gradient(to right, #7554fb, #954ec1, #b470df);
+
+  padding: 5px;
+  border: 1px solid #7554fb;
+}
+.nav-items > ul {
+  display: flex;
+}
+
+.nav-items > ul > li {
+  padding: 10;
+  list-style-type: none;
+}
+
+.res-logo {
+  width: 100%;
+}
+.res-containers {
+  display: flex;
+  flex-wrap: wrap;
+}
+.res-card {
+  margin: 10px;
+  padding: 10px;
+  height: 500px;
+  width: 200px;
+
+  background-color: #f0f0f0;
+}
+.res-card:hover {
+  border: 1px solid black;
+  background-color: #b180e9;
+  cursor: pointer;
+}
+
+.search {
+  margin-top: 10;
+  margin-bottom: 10;
+}
+
+.body {
+  margin-left: 10;
+}
+
+.logo-img {
+  width: 80px;
+  margin-left: 20;
+  margin-top: 5;
+}
