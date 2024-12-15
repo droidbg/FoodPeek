@@ -20,6 +20,8 @@
 
 3. Make Search Functionality -> useState
 
-4. CORS -> when we try to fetch from an api that is having different domain name, the browser will block the call and give CORS issue, to solve that we can use extension in our chrome
+4. CORS -> when we try to fetch from an api that is having different domain name, the browser will block the call and give CORS issue, to solve that we can use extension in our chrome for the meantime. (Allw CORS extension)
 
 5. Conditional Rendering - > when we render data based on some condition, like when data is there show actual cards, else show shimmer ui.
+
+6. Add login/logout button using setState

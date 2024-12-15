@@ -5,6 +5,7 @@ import Shimmer from "./Shimmer";
 const AllRestaurantCompenent = () => {
   const [filteredList, setFilteredList] = useState([]);
   const [originalList, setOriginalList] = useState([]);
+  const [searchText, setSearchText] = useState("");
   console.log("RENDERED");
   useEffect(() => {
     fetchData();
@@ -23,14 +24,37 @@ const AllRestaurantCompenent = () => {
     setOriginalList(list);
     setFilteredList(list);
   };
-  if (filteredList.length === 0) {
-    return <Shimmer />;
-  }
 
-  return (
+  const filterUsingSearch = (text) => {
+    const filterSearch = originalList.filter((item) =>
+      item.info.name.toLowerCase().includes(text.toLowerCase())
+    );
+
+    setFilteredList(filterSearch);
+  };
+
+  return filteredList.length === 0 ? (
+    <Shimmer />
+  ) : (
     <div>
       <div className="filter">
-        <div className="search">search</div>
+        <div className="search-container">
+          <input
+            type="text"
+            value={searchText}
+            onChange={(text) => {
+              setSearchText(text.target.value);
+            }}
+          />
+          <button
+            className="search-button"
+            onClick={() => {
+              filterUsingSearch(searchText);
+            }}
+          >
+            Search
+          </button>
+        </div>
         <div className="top-rated">
           <button
             onClick={() => {
@@ -41,7 +65,7 @@ const AllRestaurantCompenent = () => {
               setFilteredList(filterList);
             }}
           >
-            top rated resturants
+            Top Rated Resturants
           </button>
         </div>
       </div>
