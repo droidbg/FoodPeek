@@ -51,3 +51,10 @@
   margin-left: 20;
   margin-top: 5;
 }
+.top-rated :hover {
+  cursor: pointer;
+  color: #b180e9;
+}
+.top-rated {
+  margin-top: 20px;
+}
