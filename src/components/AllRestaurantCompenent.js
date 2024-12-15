@@ -1,6 +1,6 @@
 import Resturantcard from "./Resturantcard";
-import reslist from "../utils/res-list";
 import { useEffect, useState } from "react";
+import Shimmer from "./Shimmer";
 
 const AllRestaurantCompenent = () => {
   const [filteredList, setFilteredList] = useState([]);
@@ -23,22 +23,29 @@ const AllRestaurantCompenent = () => {
     setOriginalList(list);
     setFilteredList(list);
   };
+  if (filteredList.length === 0) {
+    return <Shimmer />;
+  }
 
   return (
     <div>
-      <div className="top-rated">
-        <button
-          onClick={() => {
-            const filterList = originalList.filter((element) => {
-              return element.info.avgRating > 4.5;
-            });
+      <div className="filter">
+        <div className="search">search</div>
+        <div className="top-rated">
+          <button
+            onClick={() => {
+              const filterList = originalList.filter((element) => {
+                return element.info.avgRating > 4.5;
+              });
 
-            setFilteredList(filterList);
-          }}
-        >
-          top rated resturants
-        </button>
+              setFilteredList(filterList);
+            }}
+          >
+            top rated resturants
+          </button>
+        </div>
       </div>
+
       <div className="res-containers">
         {filteredList.map((data) => {
           return <Resturantcard data={data} key={data.info.id} />;

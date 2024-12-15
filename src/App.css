@@ -58,3 +58,15 @@
 .top-rated {
   margin-top: 20px;
 }
+
+.shimmer-card {
+  background-color: #f0f0f0;
+  width: 200px;
+  height: 400px;
+  margin: 20px;
+}
+
+.shimmer-container {
+  display: flex;
+  flex-wrap: wrap;
+}
