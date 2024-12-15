@@ -25,3 +25,9 @@
 5. Conditional Rendering - > when we render data based on some condition, like when data is there show actual cards, else show shimmer ui.
 
 6. Add login/logout button using setState
+
+7. Optiional Chaining
+
+- data?.abcd?.efgh?.quantity
+
+8. CORS Proxy .io
