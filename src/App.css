@@ -13,7 +13,9 @@
 
 .nav-items > ul > li {
   padding: 10;
+  margin: 5;
   list-style-type: none;
+  cursor: pointer;
 }
 
 .res-logo {
@@ -79,4 +81,13 @@
 
 .search-button {
   margin-left: 5;
+}
+
+.login-button {
+  width: 80;
+  padding: 10;
+  margin: 5;
+  background-color: #7554fb;
+  color: #fff;
+  cursor: pointer;
 }
