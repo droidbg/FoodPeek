@@ -3,7 +3,6 @@ const Resturantcard = (props) => {
   const { data } = props;
   const { name, cloudinaryImageId, costForTwo, cuisines, avgRating } =
     data.info;
-  console.log(data);
 
   return (
     <div className="res-card ">
