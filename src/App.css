@@ -13,7 +13,9 @@
 
 .nav-items > ul > li {
   padding: 10;
+  margin: 5;
   list-style-type: none;
+  cursor: pointer;
 }
 
 .res-logo {
@@ -50,4 +52,42 @@
   width: 80px;
   margin-left: 20;
   margin-top: 5;
+}
+.top-rated :hover {
+  cursor: pointer;
+  color: #b180e9;
+}
+
+.shimmer-card {
+  background-color: #f0f0f0;
+  width: 200px;
+  height: 400px;
+  margin: 20px;
+}
+
+.shimmer-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.filter {
+  display: flex;
+  margin: 10px;
+}
+
+.search-container {
+  margin-right: 10px;
+}
+
+.search-button {
+  margin-left: 5;
+}
+
+.login-button {
+  width: 80;
+  padding: 10;
+  margin: 5;
+  background-color: #7554fb;
+  color: #fff;
+  cursor: pointer;
 }

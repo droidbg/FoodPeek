@@ -1,9 +1,8 @@
 import { IMAGES_URL } from "../utils/constants";
-const Resturantcard = (props) => {
+const ResturantCard = (props) => {
   const { data } = props;
   const { name, cloudinaryImageId, costForTwo, cuisines, avgRating } =
     data.info;
-  console.log(data);
 
   return (
     <div className="res-card ">
@@ -17,4 +16,4 @@ const Resturantcard = (props) => {
     </div>
   );
 };
-export default Resturantcard;
+export default ResturantCard;

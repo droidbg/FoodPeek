@@ -1,9 +1,8 @@
-import AllRestaurantCompenent from "./AllRestaurantCompenent";
+import Restaurants from "./Restraurants";
 const Body = () => {
   return (
     <div className="body">
-      <div className="search">search</div>
-      <AllRestaurantCompenent />
+      <Restaurants />
     </div>
   );
 };

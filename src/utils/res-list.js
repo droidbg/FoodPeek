@@ -9,7 +9,7 @@ const reslist = [
       areaName: "Koramangala",
       costForTwo: "₹350 for two",
       cuisines: ["Pizzas"],
-      avgRating: 4.2,
+      avgRating: 3.2,
       parentId: "721",
       avgRatingString: "4.2",
       totalRatingsString: "21K+",
