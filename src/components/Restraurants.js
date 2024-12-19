@@ -1,4 +1,4 @@
-import ResturantCard from "./ResturantCard";
+import ResturantCard from "./Resturantcard";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 
@@ -13,7 +13,12 @@ const Restaurants = () => {
 
   const fetchData = async () => {
     const data = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&page_type=DESKTOP_WEB_LISTING"
+      "https://proxy.cors.sh/https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999",
+      {
+        headers: {
+          "x-cors-api-key": process.env.API_KEY,
+        },
+      }
     );
 
     const json = await data.json();

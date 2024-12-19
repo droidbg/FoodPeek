@@ -1,7 +1,9 @@
 This is a food delivery application.
 
-For fetching of data we are using swiggy API :
-https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&page_type=DESKTOP_WEB_LISTING
+1. For fetching of data we are using swiggy API :
+   https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&page_type=DESKTOP_WEB_LISTING
+
+2. Added Cors Proxy using https://cors.sh/
 
 <!-- /\*\*
 
@@ -22,3 +24,5 @@ https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.6244806999
 -      - Copyright
 -      - Links
 - \*/ -->
+
+-> Create a .env file and your CORS Proxy API key in it
