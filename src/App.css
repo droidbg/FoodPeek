@@ -91,3 +91,8 @@
   color: #fff;
   cursor: pointer;
 }
+
+.link-tag {
+  text-decoration: none;
+  color: black;
+}

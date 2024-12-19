@@ -34,8 +34,6 @@ const RestaurantMenu = () => {
   const accordianList =
     menuData?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards;
 
-  console.log(accordianList);
-
   return (
     <div>
       <h1>{name}</h1>
