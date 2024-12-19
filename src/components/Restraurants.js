@@ -1,25 +1,23 @@
 import ResturantCard from "./Resturantcard";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
+import { RESTRAURANTS_LIST } from "../utils/constants";
 
 const Restaurants = () => {
   const [filteredList, setFilteredList] = useState([]);
   const [originalList, setOriginalList] = useState([]);
   const [searchText, setSearchText] = useState("");
-  console.log("RENDERED");
+
   useEffect(() => {
     fetchData();
   }, []);
 
   const fetchData = async () => {
-    const data = await fetch(
-      "https://proxy.cors.sh/https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999",
-      {
-        headers: {
-          "x-cors-api-key": process.env.API_KEY,
-        },
-      }
-    );
+    const data = await fetch(RESTRAURANTS_LIST, {
+      headers: {
+        "x-cors-api-key": process.env.API_KEY,
+      },
+    });
 
     const json = await data.json();
 
