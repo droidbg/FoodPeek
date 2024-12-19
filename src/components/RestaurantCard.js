@@ -1,5 +1,5 @@
 import { IMAGES_URL } from "../utils/constants";
-const ResturantCard = (props) => {
+const RestaurantCard = (props) => {
   const { data } = props;
   const { name, cloudinaryImageId, costForTwo, cuisines, avgRating } =
     data.info;
@@ -16,4 +16,4 @@ const ResturantCard = (props) => {
     </div>
   );
 };
-export default ResturantCard;
+export default RestaurantCard;

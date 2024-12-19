@@ -1,4 +1,4 @@
-import Restaurants from "./Restraurants";
+import Restaurants from "./Restaurants";
 const Body = () => {
   return (
     <div className="body">

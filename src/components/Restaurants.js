@@ -1,4 +1,4 @@
-import ResturantCard from "./Resturantcard";
+import RestaurantCard from "./RestaurantCard";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import { RESTRAURANTS_LIST } from "../utils/constants";
@@ -75,7 +75,7 @@ const Restaurants = () => {
 
       <div className="res-containers">
         {filteredList.map((data) => {
-          return <ResturantCard data={data} key={data.info.id} />;
+          return <RestaurantCard data={data} key={data.info.id} />;
         })}
       </div>
     </div>
