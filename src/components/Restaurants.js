@@ -1,7 +1,7 @@
 import RestaurantCard from "./RestaurantCard";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
-import { RESTRAURANTS_LIST } from "../utils/constants";
+import { RESTAURANT_LIST_URL } from "../utils/constants";
 
 const Restaurants = () => {
   const [filteredList, setFilteredList] = useState([]);
@@ -13,7 +13,7 @@ const Restaurants = () => {
   }, []);
 
   const fetchData = async () => {
-    const data = await fetch(RESTRAURANTS_LIST, {
+    const data = await fetch(RESTAURANT_LIST_URL, {
       headers: {
         "x-cors-api-key": process.env.API_KEY,
       },

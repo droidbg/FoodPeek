@@ -26,3 +26,5 @@ This is a food delivery application.
 - \*/ -->
 
 -> Create a .env file and your CORS Proxy API key in it
+
+-> https://designer.mocky.io/design or create own server on vercel or render.com
