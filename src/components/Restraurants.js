@@ -1,8 +1,8 @@
-import Resturantcard from "./Resturantcard";
+import ResturantCard from "./ResturantCard";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 
-const AllRestaurantCompenent = () => {
+const Restaurants = () => {
   const [filteredList, setFilteredList] = useState([]);
   const [originalList, setOriginalList] = useState([]);
   const [searchText, setSearchText] = useState("");
@@ -72,10 +72,10 @@ const AllRestaurantCompenent = () => {
 
       <div className="res-containers">
         {filteredList.map((data) => {
-          return <Resturantcard data={data} key={data.info.id} />;
+          return <ResturantCard data={data} key={data.info.id} />;
         })}
       </div>
     </div>
   );
 };
-export default AllRestaurantCompenent;
+export default Restaurants;
