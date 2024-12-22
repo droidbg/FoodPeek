@@ -1,5 +1,6 @@
 const User = (props) => {
   const { name } = props;
+  console.log(typeof props.age);
 
   return (
     <div className="user-card">
