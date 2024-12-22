@@ -1,8 +1,13 @@
+import User from "./User";
+import UserCard from "./UserCard";
+
 const About = () => {
   return (
     <div className="about-page">
       <h1>About Us</h1>
-      <h4>Updating Soon...</h4>
+
+      <User name="Binni (from Functional Component)" />
+      <UserCard name="Binni (from Class Component)" />
     </div>
   );
 };
