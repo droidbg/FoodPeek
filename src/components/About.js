@@ -1,13 +1,34 @@
 import User from "./User";
 import UserCard from "./UserCard";
+import { useState } from "react";
 
 const About = () => {
+  const [isClassComp, setIsClassComp] = useState(false);
+
   return (
     <div className="about-page">
       <h1>About Us</h1>
-
-      <User name="Binni (from Functional Component)" age={1} />
-      <UserCard name="Binni (from Class Component)" />
+      <div className="component-buttons">
+        <button
+          onClick={() => {
+            setIsClassComp(false);
+          }}
+        >
+          Functional
+        </button>
+        <button
+          onClick={() => {
+            setIsClassComp(true);
+          }}
+        >
+          Class
+        </button>
+      </div>
+      {isClassComp ? (
+        <UserCard name="Binni (from Class Component)" />
+      ) : (
+        <User name="Binni (from Functional Component)" age={1} />
+      )}
     </div>
   );
 };

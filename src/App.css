@@ -102,3 +102,10 @@
   padding: 20px;
   margin: 10px;
 }
+
+.component-buttons {
+  justify-content: space-between;
+  display: flex;
+  width: 150px;
+  margin: 10px;
+}
