@@ -3,7 +3,7 @@ import UserCard from "./UserCard";
 import { useState } from "react";
 
 const About = () => {
-  const [isClassComp, setIsClassComp] = useState(false);
+  const [isClassComp, setIsClassComp] = useState(true);
 
   return (
     <div className="about-page">
