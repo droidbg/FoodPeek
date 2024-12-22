@@ -3,17 +3,17 @@ import React from "react";
 class UserCard extends React.Component {
   constructor(props) {
     super(props);
-    console.log("Child Constructer");
+    console.log(this.props.name + " Child Constructer");
     this.state = {
       count: 0,
     };
   }
   componentDidMount() {
-    console.log("Child Component Did Mount");
+    console.log(this.props.name + " Child Component Did Mount");
   }
 
   render() {
-    console.log("Child Render");
+    console.log(this.props.name + " Child Render");
     const { name } = this.props;
     return (
       <div className="user-card">
