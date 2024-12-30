@@ -27,4 +27,6 @@ In JavaScript, when you use the fetch API to retrieve data from a server, you ge
 
 The .json() method is a built-in function on the Response object that parses the response body as JSON. It returns a Promise that resolves to the parsed JavaScript object (or array, depending on the data).
 
+basically -> headers come first, we wait for wait for body to come and parse in .json
+
 ![alt text](image-1.png)
