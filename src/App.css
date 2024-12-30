@@ -12,10 +12,17 @@
 }
 
 .nav-items > ul > li {
-  padding: 10;
-  margin: 5;
+  padding: 10px;
+  margin: 5px;
   list-style-type: none;
   cursor: pointer;
+}
+
+.nav-items > ul > li :hover {
+  background-color: #4b0a97;
+  color: white;
+  border-radius: 10px;
+  padding: 10px;
 }
 
 .res-logo {
