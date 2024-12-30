@@ -1,9 +1,15 @@
 import Shimmer from "./Shimmer";
 import Accordian from "./Accordian";
 import useRestaurantMenu from "../utils/useRestaurantMenu";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 const RestaurantMenu = () => {
   const menuData = useRestaurantMenu();
+  const onlineStatus = useOnlineStatus();
+
+  if (!onlineStatus) {
+    return <div>INTERNET CONNECTION ISSUE</div>;
+  }
   if (menuData === null) {
     return <Shimmer />;
   }
