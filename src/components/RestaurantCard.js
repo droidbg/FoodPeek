@@ -5,10 +5,10 @@ const RestaurantCard = (props) => {
     data.info;
 
   return (
-    <div className="res-card ">
+    <div className="w-52  m-2 p-2 rounded-lg bg-gray-100 hover:bg-gray-200">
       <div>
-        <img className="res-logo" src={IMAGES_URL + cloudinaryImageId}></img>
-        <h4>{name} </h4>
+        <img className="rounded-lg" src={IMAGES_URL + cloudinaryImageId}></img>
+        <h4 className="my-2 font-bold">{name} </h4>
         <h4> {costForTwo} </h4>
         <h4> {cuisines.join(", ")}</h4>
         <h4>{avgRating}</h4>

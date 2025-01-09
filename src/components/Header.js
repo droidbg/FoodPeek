@@ -12,37 +12,40 @@ const Header = () => {
   };
 
   return (
-    <div className="heading">
-      <div className="logo">
+    <div className="flex p-4  shadow-lg mb-2  justify-between bg-pink-100">
+      <div className="w-20">
         <Link to="/">
           <img className="logo-img" src={logo} />
         </Link>
       </div>
-      <div className="nav-items">
-        <ul>
-          <li>Online Status: {status ? "🟢 " : " 🔴 "}</li>
+      <div>
+        <ul className="flex m-2 p-4">
+          <li className="m-2">Online Status: {status ? "🟢 " : " 🔴 "}</li>
 
-          <li>
+          <li className="m-2  hover:text-fuchsia-600">
             <Link to="/" className="link-tag">
               Home
             </Link>
           </li>
-          <li>
+          <li className="m-2  hover:text-fuchsia-600">
             <Link to="/about" className="link-tag">
               About
             </Link>
           </li>
-          <li>
+          <li className="m-2  hover:text-fuchsia-600">
             <Link to="/contact" className="link-tag">
               Contact Us
             </Link>
           </li>
-          <li>
+          <li className="m-2  hover:text-fuchsia-600">
             <Link to="/cart" className="link-tag">
               Cart
             </Link>
           </li>
-          <button className="login-button" onClick={onClickHandler}>
+          <button
+            className="m-2  hover:text-fuchsia-600"
+            onClick={onClickHandler}
+          >
             {btnName}
           </button>
         </ul>

@@ -41,9 +41,10 @@ const Restaurants = () => {
     <Shimmer />
   ) : (
     <div>
-      <div className="filter">
-        <div className="search-container">
+      <div className="filter flex  m-2 p-2">
+        <div className="search ">
           <input
+            className="border border-slate-900 mr-2 rounded-md"
             type="text"
             value={searchText}
             onChange={(text) => {
@@ -51,7 +52,7 @@ const Restaurants = () => {
             }}
           />
           <button
-            className="search-button"
+            className="search-btn bg-green-100 m-2 px-2 py-1 rounded-lg"
             onClick={() => {
               filterUsingSearch(searchText);
             }}
@@ -59,7 +60,7 @@ const Restaurants = () => {
             Search
           </button>
         </div>
-        <div className="top-rated">
+        <div className=" top-rated bg-yellow-100 m-2 px-2 py-1 rounded-lg">
           <button
             onClick={() => {
               const filterList = originalList.filter((element) => {
@@ -74,7 +75,7 @@ const Restaurants = () => {
         </div>
       </div>
 
-      <div className="res-containers">
+      <div className="flex flex-wrap m-2 ml-12">
         {filteredList.map((data) => {
           const id = data.info.id;
           return (
