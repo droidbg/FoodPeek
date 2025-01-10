@@ -12,7 +12,7 @@ const Header = () => {
   };
 
   return (
-    <div className=" flex p-4  shadow-lg mb-2  justify-between bg-pink-200">
+    <div className=" flex p-4  shadow-lg mb-2  justify-between bg-gradient-to-br from-[#ef6cb6] to-[#fc71c0]">
       <div className="w-20">
         <Link to="/">
           <img className="logo-img" src={logo} />
