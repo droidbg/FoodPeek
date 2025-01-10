@@ -7,7 +7,7 @@ import { Link } from "react-router";
 const Restaurants = () => {
   const [filteredList, setFilteredList] = useState([]);
   const [originalList, setOriginalList] = useState([]);
-  const [searchText, setSearchText] = useState("");
+
   const ResturantWithLabel = useWithTopRatedLabel(RestaurantCard);
 
   useEffect(() => {
@@ -40,26 +40,18 @@ const Restaurants = () => {
 
   return (
     <div>
-      <div className="filter flex  m-2 p-2">
-        <div className="search ">
+      <div className="filter flex m-2 p-2">
+        <div className="search bg-green-100 m-2 px-2 py-2 rounded-lg shadow-md">
+          <label className="search-btn mr-2">Search</label>
           <input
-            className="border border-slate-900 mr-2 rounded-md"
+            className="border border-slate-900 mr-2 rounded-md pl-1"
             type="text"
-            value={searchText}
             onChange={(text) => {
-              setSearchText(text.target.value);
+              filterUsingSearch(text.target.value);
             }}
           />
-          <button
-            className="search-btn bg-green-100 m-2 px-2 py-1 rounded-lg shadow-md"
-            onClick={() => {
-              filterUsingSearch(searchText);
-            }}
-          >
-            Search
-          </button>
         </div>
-        <div className=" top-rated bg-yellow-100 m-2 px-2 py-1 rounded-lg shadow-lg">
+        <div className="flex top-rated bg-yellow-100 m-2 px-2 py-1 rounded-lg shadow-lg text-center">
           <button
             onClick={() => {
               const filterList = originalList.filter((element) => {
