@@ -80,13 +80,15 @@ const Restaurants = () => {
         {filteredList.map((data) => {
           const id = data.info.id;
           return (
-            <Link key={id} to={"/restaurant/" + id} className="link-tag">
-              {data.info.avgRating >= 4.5 ? (
-                <ResturantWithLabel data={data} />
-              ) : (
-                <RestaurantCard data={data} />
-              )}
-            </Link>
+            <div className="m-2">
+              <Link key={id} to={"/restaurant/" + id} className="link-tag">
+                {data.info.avgRating >= 4.5 ? (
+                  <ResturantWithLabel data={data} />
+                ) : (
+                  <RestaurantCard data={data} />
+                )}
+              </Link>
+            </div>
           );
         })}
       </div>

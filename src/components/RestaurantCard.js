@@ -5,7 +5,7 @@ const RestaurantCard = (props) => {
     data.info;
 
   return (
-    <div className="w-52  m-2 p-2 rounded-lg bg-gray-100 hover:bg-gray-200">
+    <div className="w-52 transition-all p-2 rounded-2xl bg-gray-100 hover:bg-pink-100  hover:scale-95  hover:rounded-[4px] hover:shadow-[#f5474750] hover:shadow-lg">
       <div>
         <img className="rounded-lg" src={IMAGES_URL + cloudinaryImageId}></img>
         <h4 className="my-2 font-bold">{name} </h4>
@@ -22,7 +22,7 @@ const RestaurantCard = (props) => {
 export const useWithTopRatedLabel = (RestaurantCard) => {
   return (props) => {
     return (
-      <div className="relative">
+      <div className="relative ">
         <div className="ribbon">
           <span>Top Rated</span>
         </div>
