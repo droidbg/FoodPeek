@@ -5,12 +5,18 @@ const RestaurantCard = (props) => {
     data.info;
 
   return (
-    <div className="w-52 transition-all p-2 rounded-2xl bg-gray-100 hover:bg-pink-100  hover:scale-95  hover:rounded-[4px] hover:shadow-[#f5474750] hover:shadow-lg">
+    <div className="w-64 transition-all p-2 rounded-2xl bg-red-100 hover:bg-pink-100  hover:scale-95  hover:rounded-[4px] hover:shadow-[#f5474750] hover:shadow-lg">
       <div>
-        <img className="rounded-lg" src={IMAGES_URL + cloudinaryImageId}></img>
+        <img
+          className="rounded-lg h-44 object-cover w-full"
+          src={IMAGES_URL + cloudinaryImageId}
+        ></img>
         <h4 className="my-2 font-bold">{name} </h4>
         <h4> {costForTwo} </h4>
-        <h4> {cuisines.join(", ")}</h4>
+        <p className="overflow-hidden text-ellipsis whitespace-nowrap">
+          {" "}
+          {cuisines.join(", ")}
+        </p>
         <h4>{avgRating}</h4>
       </div>
     </div>

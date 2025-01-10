@@ -38,9 +38,7 @@ const Restaurants = () => {
     setFilteredList(filterSearch);
   };
 
-  return filteredList.length === 0 ? (
-    <Shimmer />
-  ) : (
+  return (
     <div>
       <div className="filter flex  m-2 p-2">
         <div className="search ">
@@ -53,7 +51,7 @@ const Restaurants = () => {
             }}
           />
           <button
-            className="search-btn bg-green-100 m-2 px-2 py-1 rounded-lg"
+            className="search-btn bg-green-100 m-2 px-2 py-1 rounded-lg shadow-md"
             onClick={() => {
               filterUsingSearch(searchText);
             }}
@@ -61,7 +59,7 @@ const Restaurants = () => {
             Search
           </button>
         </div>
-        <div className=" top-rated bg-yellow-100 m-2 px-2 py-1 rounded-lg">
+        <div className=" top-rated bg-yellow-100 m-2 px-2 py-1 rounded-lg shadow-lg">
           <button
             onClick={() => {
               const filterList = originalList.filter((element) => {
@@ -75,23 +73,26 @@ const Restaurants = () => {
           </button>
         </div>
       </div>
-
-      <div className="flex flex-wrap m-2 ml-12">
-        {filteredList.map((data) => {
-          const id = data.info.id;
-          return (
-            <div className="m-2">
-              <Link key={id} to={"/restaurant/" + id} className="link-tag">
-                {data.info.avgRating >= 4.5 ? (
-                  <ResturantWithLabel data={data} />
-                ) : (
-                  <RestaurantCard data={data} />
-                )}
-              </Link>
-            </div>
-          );
-        })}
-      </div>
+      {filteredList.length === 0 ? (
+        <Shimmer />
+      ) : (
+        <div className="flex flex-wrap m-2 ml-12">
+          {filteredList.map((data) => {
+            const id = data.info.id;
+            return (
+              <div className="m-2" key={id}>
+                <Link to={"/restaurant/" + id}>
+                  {data.info.avgRating >= 4.5 ? (
+                    <ResturantWithLabel data={data} />
+                  ) : (
+                    <RestaurantCard data={data} />
+                  )}
+                </Link>
+              </div>
+            );
+          })}
+        </div>
+      )}
     </div>
   );
 };

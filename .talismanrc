@@ -1,5 +1,5 @@
 fileignoreconfig:
 
-- filename: package-lock.json
-  checksum: 88aa9d23340475dc36809238b368813248406cf96023c99023a36cd007940796
+- filename: src/components/Shimmer.js
+  checksum: 576e4ddec5545d7bdb5c3b1e039b2819a58ccf1006a6048ba7bdffb2ca5d3427
   version: ""
