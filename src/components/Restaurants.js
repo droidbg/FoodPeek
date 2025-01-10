@@ -1,4 +1,4 @@
-import RestaurantCard from "./RestaurantCard";
+import RestaurantCard, { useWithTopRatedLabel } from "./RestaurantCard";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import { RESTAURANT_LIST_URL } from "../utils/constants";
@@ -8,6 +8,7 @@ const Restaurants = () => {
   const [filteredList, setFilteredList] = useState([]);
   const [originalList, setOriginalList] = useState([]);
   const [searchText, setSearchText] = useState("");
+  const ResturantWithLabel = useWithTopRatedLabel(RestaurantCard);
 
   useEffect(() => {
     fetchData();
@@ -64,7 +65,7 @@ const Restaurants = () => {
           <button
             onClick={() => {
               const filterList = originalList.filter((element) => {
-                return element.info.avgRating > 4.5;
+                return element.info.avgRating >= 4.5;
               });
 
               setFilteredList(filterList);
@@ -80,7 +81,11 @@ const Restaurants = () => {
           const id = data.info.id;
           return (
             <Link key={id} to={"/restaurant/" + id} className="link-tag">
-              <RestaurantCard data={data} />
+              {data.info.avgRating >= 4.5 ? (
+                <ResturantWithLabel data={data} />
+              ) : (
+                <RestaurantCard data={data} />
+              )}
             </Link>
           );
         })}
