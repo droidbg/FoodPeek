@@ -1,4 +1,5 @@
 import { useState } from "react";
+import AccordianBody from "./AccordionBody";
 
 const Accordian = ({ data }) => {
   const [showItem, setShowItem] = useState(false);
@@ -14,21 +15,16 @@ const Accordian = ({ data }) => {
         className="header flex justify-between p-2 cursor-pointer my-2"
         onClick={handleOnClick}
       >
-        <span className="font-bold">
+        <span className="font-bold text-lg">
           {title} ({itemCards.length})
         </span>
         <span className="font-bold">{showItem ? "↑" : "↓"}</span>
       </div>
 
       {showItem && (
-        <div className="body">
+        <div className="accordion-body">
           {itemCards.map((item) => {
-            const { name, price } = item.card.info;
-            return (
-              <div key={name + price}>
-                {name} - Price: Rs. {price / 100}
-              </div>
-            );
+            return <AccordianBody itemInfo={item.card.info} />;
           })}
         </div>
       )}
