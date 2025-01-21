@@ -24,17 +24,19 @@ const RestaurantMenu = () => {
       }
     );
 
-  const { name, avgRating, totalRatingsString, costForTwoMessage } =
+  const { name, avgRating, totalRatingsString, costForTwoMessage, cuisines } =
     menuData?.cards[2]?.card?.card?.info;
 
+  //console.log(menuData?.cards[2]?.card?.card?.info);
   return (
-    <div className="text-center w-6/12 m-auto">
-      <div className="font-bold text-xl mt-6 mb-2">{name}</div>
-      <div className="font-bold text-m mb-3 ">
+    <div className="w-6/12 m-auto">
+      <div className="font-bold text-2xl mt-6 mb-2">{name}</div>
+      <div className="font-bold text-m mb-3  ">
         <span>
           ⭐ {avgRating ?? "--"} ({totalRatingsString})
         </span>
         <span className="mx-2"> ⋅ {costForTwoMessage}</span>
+        <div className="text-sm font-bold p-2"> {cuisines.join(", ")}</div>
       </div>
       {filterCategory?.map((element) => {
         return (
