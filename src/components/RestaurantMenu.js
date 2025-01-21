@@ -37,11 +37,8 @@ const RestaurantMenu = () => {
         <span className="mx-2"> ⋅ {costForTwoMessage}</span>
       </div>
       {filterCategory?.map((element) => {
-        const { itemCards, title } = element.card.card;
         return (
-          itemCards && (
-            <Accordian key={title} itemCards={itemCards} title={title} />
-          )
+          <Accordian key={element.card.card.title} data={element.card.card} />
         );
       })}
     </div>
