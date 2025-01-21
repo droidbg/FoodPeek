@@ -14,23 +14,35 @@ const RestaurantMenu = () => {
     return <Shimmer />;
   }
 
+  const filterCategory =
+    menuData?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards?.filter(
+      (element) => {
+        return (
+          element.card.card["@type"] ==
+          "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
+        );
+      }
+    );
+
   const { name, avgRating, totalRatingsString, costForTwoMessage } =
     menuData?.cards[2]?.card?.card?.info;
-  const accordianList =
-    menuData?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards;
 
   return (
-    <div>
-      <h1>{name}</h1>
-      <h4>
-        ⭐ {avgRating} ({totalRatingsString})
-      </h4>
-      <h3>{costForTwoMessage}</h3>
-      {accordianList?.map((element) => {
+    <div className="text-center w-6/12 m-auto">
+      <div className="font-bold text-xl mt-6 mb-2">{name}</div>
+      <div className="font-bold text-m mb-3 ">
+        <span>
+          ⭐ {avgRating ?? "--"} ({totalRatingsString})
+        </span>
+        <span className="mx-2"> ⋅ {costForTwoMessage}</span>
+      </div>
+      {filterCategory?.map((element) => {
         const { itemCards, title } = element.card.card;
-        return itemCards ? (
-          <Accordian key={title} itemCards={itemCards} title={title} />
-        ) : null;
+        return (
+          itemCards && (
+            <Accordian key={title} itemCards={itemCards} title={title} />
+          )
+        );
       })}
     </div>
   );

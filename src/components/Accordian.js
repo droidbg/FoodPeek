@@ -2,8 +2,8 @@ const Accordian = (props) => {
   const { itemCards, title } = props;
 
   return (
-    <div>
-      <h2>{title}</h2>
+    <div className="my-4 bg-pink-100 shadow p-2">
+      <h2 className="font-bold">{title}</h2>
 
       <ul>
         {itemCards.map((item) => {
