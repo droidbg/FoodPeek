@@ -1,14 +1,16 @@
 import RestaurantCard, {
   useWithTopRatedLabel,
 } from "../../components/RestaurantCard";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Shimmer from "../../components/Shimmer";
 import { RESTAURANT_LIST_URL } from "../../utils/constants";
 import { Link } from "react-router";
+import UserContext from "../../utils/UserContext";
 
 const Restaurants = () => {
   const [filteredList, setFilteredList] = useState([]);
   const [originalList, setOriginalList] = useState([]);
+  const { name, setName } = useContext(UserContext);
 
   const ResturantWithLabel = useWithTopRatedLabel(RestaurantCard);
 
@@ -65,6 +67,17 @@ const Restaurants = () => {
           >
             Top Rated Resturants
           </button>
+        </div>
+        <div className="m-2 p-2 rounded-lg bg-blue-200 ">
+          <label className="mr-2">Change Name</label>
+          <input
+            className="border border-black rounded-lg"
+            value={name}
+            onChange={(text) => {
+              // console.log(text.target.value);
+              setName(text.target.value);
+            }}
+          />
         </div>
       </div>
       {filteredList.length === 0 ? (

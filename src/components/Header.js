@@ -51,7 +51,7 @@ const Header = () => {
           >
             {isloggedIn ? "Logout " : "Login"}
           </button>
-          <li className="m-2 animate">{isloggedIn && name}</li>
+          <li className="m-2 animate">{isloggedIn && "Hello, " + name}</li>
         </ul>
       </div>
     </div>

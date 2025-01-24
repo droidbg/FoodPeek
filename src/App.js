@@ -1,4 +1,4 @@
-import React, { lazy, Suspense } from "react";
+import React, { lazy, Suspense, useState } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
 import Home from "./pages/home/Home";
@@ -12,9 +12,10 @@ import UserContext from "./utils/UserContext";
 const Contact = lazy(() => import("./components/Contact"));
 
 const AppLayout = () => {
+  const [name, setName] = useState("Onions");
   return (
     <div className="app-layout">
-      <UserContext.Provider value={{ name: "Ronaldo" }}>
+      <UserContext.Provider value={{ name: name, setName: setName }}>
         <Header />
         <Outlet />
       </UserContext.Provider>
