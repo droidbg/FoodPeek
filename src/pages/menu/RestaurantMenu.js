@@ -1,7 +1,7 @@
-import Shimmer from "./Shimmer";
-import Accordian from "./Accordian";
-import useRestaurantMenu from "../utils/useRestaurantMenu";
-import useOnlineStatus from "../utils/useOnlineStatus";
+import Shimmer from "../../components/Shimmer";
+import Accordian from "../../components/Accordian";
+import useRestaurantMenu from "../../utils/useRestaurantMenu";
+import useOnlineStatus from "../../utils/useOnlineStatus";
 
 const RestaurantMenu = () => {
   const menuData = useRestaurantMenu();
@@ -27,7 +27,6 @@ const RestaurantMenu = () => {
   const { name, avgRating, totalRatingsString, costForTwoMessage, cuisines } =
     menuData?.cards[2]?.card?.card?.info;
 
-  //console.log(menuData?.cards[2]?.card?.card?.info);
   return (
     <div className="w-6/12 m-auto">
       <div className="font-bold text-2xl mt-6 mb-2">{name}</div>

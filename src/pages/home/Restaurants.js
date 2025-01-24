@@ -1,7 +1,9 @@
-import RestaurantCard, { useWithTopRatedLabel } from "./RestaurantCard";
+import RestaurantCard, {
+  useWithTopRatedLabel,
+} from "../../components/RestaurantCard";
 import { useEffect, useState } from "react";
-import Shimmer from "./Shimmer";
-import { RESTAURANT_LIST_URL } from "../utils/constants";
+import Shimmer from "../../components/Shimmer";
+import { RESTAURANT_LIST_URL } from "../../utils/constants";
 import { Link } from "react-router";
 
 const Restaurants = () => {

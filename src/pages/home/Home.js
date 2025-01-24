@@ -1,9 +1,9 @@
 import Restaurants from "./Restaurants";
-const Body = () => {
+const Home = () => {
   return (
     <div className="body">
       <Restaurants />
     </div>
   );
 };
-export default Body;
+export default Home;
