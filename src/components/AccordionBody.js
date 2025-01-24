@@ -1,4 +1,4 @@
-import { IMAGES_URL } from "../utils/constants";
+import { IMAGES_URL, DEFAULT_FOOD_IMAGE } from "../utils/constants";
 import NonVegSymbol from "./NonVegSymbol";
 import VegSymbol from "./VegSymbol";
 
@@ -14,7 +14,10 @@ const AccordianBody = ({ itemInfo }) => {
           <div className=" text-sm py-2">{description}</div>
         </div>
         <div className="image w-3/12 m-auto">
-          <img src={IMAGES_URL + imageId} className="rounded-lg" />
+          <img
+            src={imageId ? IMAGES_URL + imageId : DEFAULT_FOOD_IMAGE}
+            className="rounded-lg"
+          />
         </div>
       </div>
       <div className="mt-3 border border-b-1 border-pink-200 shadow"></div>

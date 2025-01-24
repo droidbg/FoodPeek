@@ -9,3 +9,6 @@ export const RESTAURANT_LIST_URL =
 export const RESTAURANT_MENU_URL =
   PROXY_URL +
   "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=12.9352403&lng=77.624532";
+
+export const DEFAULT_FOOD_IMAGE =
+  "https://img.freepik.com/premium-photo/seamless-pattern-with-cute-cartoon-food-like-pizza-burgers-watermelon-more_14117-824840.jpg?semt=ais_hybrid";
