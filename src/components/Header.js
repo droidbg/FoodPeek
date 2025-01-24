@@ -1,14 +1,17 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import logo from "../../images/logo.png";
 import { Link } from "react-router";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import UserContext from "../utils/UserContext";
 
 const Header = () => {
-  const [btnName, setBtnName] = useState("Login");
+  const [isloggedIn, setIsLoggedIn] = useState(true);
   const status = useOnlineStatus();
+  const { name } = useContext(UserContext);
+  console.log(name);
 
   const onClickHandler = () => {
-    btnName === "Login" ? setBtnName("Logout") : setBtnName("Login");
+    setIsLoggedIn(!isloggedIn);
   };
 
   return (
@@ -46,8 +49,9 @@ const Header = () => {
             className="m-2  hover:text-fuchsia-600"
             onClick={onClickHandler}
           >
-            {btnName}
+            {isloggedIn ? "Logout " : "Login"}
           </button>
+          <li className="m-2 animate">{isloggedIn && name}</li>
         </ul>
       </div>
     </div>

@@ -7,14 +7,17 @@ import { createBrowserRouter, Outlet, RouterProvider } from "react-router";
 import About from "./components/About";
 import Error from "./components/Error";
 import RestaurantMenu from "./pages/menu/RestaurantMenu";
+import UserContext from "./utils/UserContext";
 
 const Contact = lazy(() => import("./components/Contact"));
 
 const AppLayout = () => {
   return (
     <div className="app-layout">
-      <Header />
-      <Outlet />
+      <UserContext.Provider value={{ name: "Ronaldo" }}>
+        <Header />
+        <Outlet />
+      </UserContext.Provider>
     </div>
   );
 };
