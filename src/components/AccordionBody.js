@@ -14,9 +14,14 @@ const AccordianBody = ({ itemInfo }) => {
           <div className=" text-sm py-2">{description}</div>
         </div>
         <div className="image w-3/12 m-auto">
+          <div className="relative">
+            <button className="absolute bg-black text-white py-2 px-3 rounded-xl shadow-lg mx-4 mt-16 ">
+              Add +
+            </button>
+          </div>
           <img
             src={imageId ? IMAGES_URL + imageId : DEFAULT_FOOD_IMAGE}
-            className="rounded-lg"
+            className="rounded-lg "
           />
         </div>
       </div>
