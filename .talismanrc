@@ -1,5 +1,5 @@
-fileignoreconfig:
 
-- filename: src/components/Restraurants.js
-  checksum: a181a4d1d70ae2ee502671939633c0f151917aae37945863d748582e33a682da
-  version: ""
+fileignoreconfig:
+- filename: src/pages/menu/RestaurantMenu.js
+  checksum: c8185a781e17cd27aba78759356fa197a412772487e3cb65f02b4cee25de6266
+version: ""

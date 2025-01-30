@@ -1,17 +1,24 @@
-import React from "react";
+import React, { lazy, Suspense, useState } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
-import Body from "./components/Body";
+import Home from "./pages/home/Home";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router";
-import Contact from "./components/Contact";
+
 import About from "./components/About";
 import Error from "./components/Error";
+import RestaurantMenu from "./pages/menu/RestaurantMenu";
+import UserContext from "./utils/UserContext";
+
+const Contact = lazy(() => import("./components/Contact"));
 
 const AppLayout = () => {
+  const [name, setName] = useState("Onions");
   return (
     <div className="app-layout">
-      <Header />
-      <Outlet />
+      <UserContext.Provider value={{ name: name, setName: setName }}>
+        <Header />
+        <Outlet />
+      </UserContext.Provider>
     </div>
   );
 };
@@ -23,7 +30,7 @@ const appRouter = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Body />,
+        element: <Home />,
       },
       {
         path: "/about",
@@ -31,7 +38,15 @@ const appRouter = createBrowserRouter([
       },
       {
         path: "/contact",
-        element: <Contact />,
+        element: (
+          <Suspense fallback={<p>Loading...</p>}>
+            <Contact />
+          </Suspense>
+        ),
+      },
+      {
+        path: "/restaurant/:restaurantId",
+        element: <RestaurantMenu />,
       },
     ],
     errorElement: <Error />,
