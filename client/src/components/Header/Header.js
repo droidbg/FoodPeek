@@ -8,28 +8,28 @@ const Header = () => {
     "m-2 hover:text-orange-600 hover:scale-105 text-sm md:text-lg";
 
   return (
-    <div className="flex shadow-xl mb-1 justify-between bg-gradient-to-br sticky backdrop-blur top-0 transition-[background-color] z-10">
+    <div className="sticky top-0 z-10 mb-1 flex justify-between bg-gradient-to-br shadow-xl backdrop-blur transition-[background-color]">
       <div>
         <Link to="/">
           <div className="my-1 flex items-center">
-            <img className="logo-img h-10 sm:h-14 md:h-20 ml-4" src={logo} />
-            <div className="font-medium text-sm sm:text-lg md:text-xl bg-[#fdf2f8] bg-opacity-20 rounded ml-2">
+            <img className="logo-img ml-4 h-10 sm:h-14 md:h-20" src={logo} />
+            <div className="ml-2 rounded bg-[#fdf2f8] bg-opacity-20 text-sm font-medium sm:text-lg md:text-xl">
               ZONION
             </div>
           </div>
         </Link>
       </div>
       <div>
-        <ul className="flex m-2 p-4">
-          <li className="m-2 hover:cursor-default hidden sm:flex ">
+        <ul className="m-2 flex p-4">
+          <li className="m-2 hidden hover:cursor-default sm:flex">
             {status ? (
               <>
-                <span className="md:flex hidden pr-1">Online ⇝ </span>
+                <span className="hidden pr-1 md:flex">Online ⇝ </span>
                 🟢
               </>
             ) : (
               <>
-                <span className="md:flex hidden pr-1 ">Offline ⇝ </span>🔴
+                <span className="hidden pr-1 md:flex">Offline ⇝ </span>🔴
               </>
             )}
           </li>

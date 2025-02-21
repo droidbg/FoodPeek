@@ -16,7 +16,7 @@ const Contact = lazy(() => import("./components/Contact/Contact"));
 
 const AppLayout = () => {
   return (
-    <div className="app-layout flex flex-col h-screen w-screen">
+    <div className="app-layout flex h-screen w-screen flex-col">
       <Header />
       <div className="flex-1">
         <Outlet />
@@ -44,7 +44,7 @@ const appRouter = createBrowserRouter([
         element: (
           <Suspense
             fallback={
-              <div class="flex items-center justify-center min-h-full">
+              <div class="flex min-h-full items-center justify-center">
                 <p class="text-center">Loading.....</p>
               </div>
             }

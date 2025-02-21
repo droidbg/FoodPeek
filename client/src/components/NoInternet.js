@@ -1,12 +1,12 @@
 const NoInternet = () => {
   return (
-    <div className="text-center pt-10 bg-pink-200 h-full">
-      <div className="text-6xl mb-2 ">WHOOPS!</div>
-      <div className="text-2xl my-3">SLOW OR NO INTERNET CONNECTION!</div>
+    <div className="h-full bg-pink-200 pt-10 text-center">
+      <div className="mb-2 text-6xl">WHOOPS!</div>
+      <div className="my-3 text-2xl">SLOW OR NO INTERNET CONNECTION!</div>
       <div>Please check your internet/mobile data and try again</div>
 
       <button
-        className="border border-black rounded-xl text-white bg-black p-2 mt-10"
+        className="mt-10 rounded-xl border border-black bg-black p-2 text-white"
         onClick={() => window.location.reload()}
       >
         REFRESH

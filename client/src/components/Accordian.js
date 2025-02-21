@@ -10,12 +10,12 @@ const Accordian = ({ data }) => {
   };
 
   return (
-    <div className="my-4 bg-pink-100 shadow shadow-rose-400 drop-shadow-lg p-2">
+    <div className="my-4 bg-pink-100 p-2 shadow shadow-rose-400 drop-shadow-lg">
       <div
-        className="header flex justify-between p-2 cursor-pointer my-2"
+        className="header my-2 flex cursor-pointer justify-between p-2"
         onClick={handleOnClick}
       >
-        <span className="font-bold text-lg">
+        <span className="text-lg font-bold">
           {title} ({itemCards.length})
         </span>
         <span className="font-bold">{showItem ? "↑" : "↓"}</span>

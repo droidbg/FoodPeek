@@ -56,11 +56,11 @@ const Restaurants = () => {
 
   return (
     <div>
-      <div className="filter flex m-2 p-2">
-        <div className="search bg-blue-100 m-2 pl-2 py-1 rounded-lg shadow-md border border-slate-400">
+      <div className="m-2 flex p-2 filter">
+        <div className="search m-2 rounded-lg border border-slate-400 bg-blue-100 py-1 pl-2 shadow-md">
           <label className="search-btn mr-2">🔍</label>
           <input
-            className="bg-transparent md:mr-2 rounded-md pl-1 outline-none w-36 md:w-fit"
+            className="w-36 rounded-md bg-transparent pl-1 outline-none md:mr-2 md:w-fit"
             type="text"
             onChange={(text) => {
               filterUsingSearch(text.target.value);
@@ -68,8 +68,8 @@ const Restaurants = () => {
             placeholder="I want to eat at...."
           />
         </div>
-        <div className="ml-2 md:ml-4 my-auto">Filter By : </div>
-        <div className="flex top-rated bg-yellow-100 m-2 px-2 py-1 rounded-lg shadow-lg text-center hover:scale-105 hover:cursor-pointer hover:shadow-md hover:shadow-amber-300">
+        <div className="my-auto ml-2 md:ml-4">Filter By : </div>
+        <div className="top-rated m-2 flex rounded-lg bg-yellow-100 px-2 py-1 text-center shadow-lg hover:scale-105 hover:cursor-pointer hover:shadow-md hover:shadow-amber-300">
           <button
             onClick={() => {
               const filterList = originalList.filter((element) => {
@@ -86,7 +86,7 @@ const Restaurants = () => {
       {filteredList?.length === 0 ? (
         <Shimmer />
       ) : (
-        <div className="flex flex-wrap m-2 ml-12 " ref={animationParent}>
+        <div className="m-2 ml-12 flex flex-wrap" ref={animationParent}>
           {filteredList?.map((data) => {
             const id = data.info.id;
             return (

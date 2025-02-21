@@ -5,13 +5,13 @@ const MenuSection = ({ data }) => {
 
   return (
     <div>
-      <div className="w-full justify-center flex items-center mt-12">
-        <div className="border-t border-dotted border-pink-400 w-full"> </div>
-        <span className="absolute border bg-black text-white p-1 rounded-lg px-2 skew-x-[-10deg]">
+      <div className="mt-12 flex w-full items-center justify-center">
+        <div className="w-full border-t border-dotted border-pink-400"> </div>
+        <span className="absolute skew-x-[-10deg] rounded-lg border bg-black p-1 px-2 text-white">
           {title}
         </span>
       </div>
-      <div className="flex mt-10 mb-12 flex-wrap">
+      <div className="mb-12 mt-10 flex flex-wrap">
         {itemCards.map((item) => {
           return (
             <MenuBody itemInfo={item.card.info} key={item.card.info.name} />

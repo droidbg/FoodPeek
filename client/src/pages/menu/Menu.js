@@ -20,14 +20,14 @@ const Menu = () => {
 
   return (
     <div>
-      <div className="w-full h-44 relative">
+      <div className="relative h-44 w-full">
         <img
-          className="absolute top-0 left-0 w-full h-full object-cover rounded-lg"
+          className="absolute left-0 top-0 h-full w-full rounded-lg object-cover"
           src="https://png.pngtree.com/background/20220923/original/pngtree-template-promotion-food-cute-color-picture-image_1918764.jpg"
           alt="Background"
         />
-        <div className="flex flex-col absolute justify-center items-center inset-0 ">
-          <div className="text-3xl md:text-7xl font-[Tangerine] font-extrabold  ">
+        <div className="absolute inset-0 flex flex-col items-center justify-center">
+          <div className="font-[Tangerine] text-3xl font-extrabold md:text-7xl">
             {name}
           </div>
           <div>

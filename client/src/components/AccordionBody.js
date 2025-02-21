@@ -5,27 +5,27 @@ import VegSymbol from "./VegSymbol";
 const AccordianBody = ({ itemInfo }) => {
   const { name, price, description, imageId, isVeg } = itemInfo;
   return (
-    <div className="mb-4 ">
-      <div className="flex pl-3 p-2 shadow-lg shadow-pink-200 bg-pink-100">
+    <div className="mb-4">
+      <div className="flex bg-pink-100 p-2 pl-3 shadow-lg shadow-pink-200">
         <div className="content w-9/12 text-left">
           {isVeg ? <VegSymbol /> : <NonVegSymbol />}
-          <div className="font-bold my-1 pr-2">{name}</div>
+          <div className="my-1 pr-2 font-bold">{name}</div>
           <div>₹{price / 100}</div>
-          <div className=" text-sm py-2">{description}</div>
+          <div className="py-2 text-sm">{description}</div>
         </div>
-        <div className="image w-3/12 m-auto">
+        <div className="image m-auto w-3/12">
           <div className="relative">
-            <button className="absolute bg-black text-white py-2 px-3 rounded-xl shadow-lg mx-4 mt-16 ">
+            <button className="absolute mx-4 mt-16 rounded-xl bg-black px-3 py-2 text-white shadow-lg">
               Add +
             </button>
           </div>
           <img
             src={imageId ? IMAGES_URL + imageId : DEFAULT_FOOD_IMAGE}
-            className="rounded-lg "
+            className="rounded-lg"
           />
         </div>
       </div>
-      <div className="mt-3 border border-b-1 border-pink-200 shadow"></div>
+      <div className="border-b-1 mt-3 border border-pink-200 shadow"></div>
     </div>
   );
 };

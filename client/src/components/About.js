@@ -12,8 +12,8 @@ class About extends React.Component {
   render() {
     return (
       <div className="about-page m-2 h-full">
-        <h1 className="font-bold text-2xl mt-2">About Us</h1>
-        <div className="flex h-5/6 justify-center items-center">
+        <h1 className="mt-2 text-2xl font-bold">About Us</h1>
+        <div className="flex h-5/6 items-center justify-center">
           Coming Soon....
         </div>
       </div>

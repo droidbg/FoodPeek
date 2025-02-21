@@ -13,11 +13,11 @@ class UserCard extends React.Component {
   render() {
     const { name } = this.props;
     return (
-      <div className="user-card border border-black p-2 m-2 rounded-xl bg-purple-100">
+      <div className="user-card m-2 rounded-xl border border-black bg-purple-100 p-2">
         <h1 className="text-2xl font-bold">Count: {this.state.count}</h1>
 
         <button
-          className="border bg-slate-600 rounded-lg px-2 py-1 text-white "
+          className="rounded-lg border bg-slate-600 px-2 py-1 text-white"
           onClick={() => {
             //NEVER UPDATE STATE VARIABLE DIRECTLY -  this.state.count = this.state.count + 1;
 
