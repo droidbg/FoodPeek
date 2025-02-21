@@ -13,7 +13,9 @@ const MenuSection = ({ data }) => {
       </div>
       <div className="flex mt-10 mb-12 flex-wrap">
         {itemCards.map((item) => {
-          return <MenuBody itemInfo={item.card.info} />;
+          return (
+            <MenuBody itemInfo={item.card.info} key={item.card.info.name} />
+          );
         })}
       </div>
     </div>

@@ -5,6 +5,7 @@ import { RESTAURANT_MENU_URL } from "../utils/constants";
 const useMenu = () => {
   const { restaurantId } = useParams();
   const [menuData, setMenuData] = useState(null);
+  let indexSelect = 4;
   useEffect(() => {
     fetchData();
   }, []);
@@ -21,16 +22,23 @@ const useMenu = () => {
 
     const menuJson = await menuResponse.json();
     const data = menuJson.data;
+    const userAgent = navigator.userAgent;
+    if (/android|iphone/i.test(userAgent)) {
+      indexSelect = 5;
+    } else if (/windows|mac|linux/i.test(userAgent)) {
+      indexSelect = 4;
+    } else {
+      indexSelect = 4;
+    }
 
-    const filterCategory =
-      data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards?.filter(
-        (element) => {
-          return (
-            element.card.card["@type"] ==
-            "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
-          );
-        }
+    const filterCategory = data?.cards[
+      indexSelect
+    ]?.groupedCard?.cardGroupMap?.REGULAR?.cards?.filter((element) => {
+      return (
+        element.card.card["@type"] ==
+        "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
       );
+    });
 
     const {
       name,
@@ -42,7 +50,7 @@ const useMenu = () => {
       locality,
       city,
     } = data?.cards[2]?.card?.card?.info;
-    console.log(data);
+    // console.log(data);
 
     const result = {
       name,

@@ -27,7 +27,7 @@ const Menu = () => {
           alt="Background"
         />
         <div className="flex flex-col absolute justify-center items-center inset-0 ">
-          <div className="text-7xl font-[Tangerine] font-extrabold  ">
+          <div className="text-3xl md:text-7xl font-[Tangerine] font-extrabold  ">
             {name}
           </div>
           <div>
