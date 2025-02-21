@@ -1,4 +1,3 @@
-import UserContext from "../utils/UserContext";
 import UserCard from "./UserCard";
 
 import React from "react";
@@ -6,25 +5,14 @@ import React from "react";
 class About extends React.Component {
   constructor(props) {
     super(props);
-    console.log("Parent Constructor.");
   }
 
-  componentDidMount() {
-    console.log("Parent Component Did Mount.");
-  }
+  componentDidMount() {}
 
   render() {
-    console.log("Parent Render.");
-
     return (
-      <div className="about-page m-2">
+      <div className="about-page m-2 h-full">
         <h1 className="font-bold text-2xl my-2">About Us</h1>
-
-        <UserContext.Consumer>
-          {({ name }) => {
-            return name;
-          }}
-        </UserContext.Consumer>
 
         <UserCard name="First" />
         <UserCard name="Second" />

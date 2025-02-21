@@ -3,7 +3,7 @@ import AccordianBody from "./AccordionBody";
 
 const Accordian = ({ data }) => {
   const [showItem, setShowItem] = useState(false);
-  // console.log(data);
+
   const { itemCards, title } = data;
   const handleOnClick = () => {
     setShowItem(!showItem);

@@ -1,5 +1,4 @@
-
 fileignoreconfig:
-- filename: src/pages/menu/RestaurantMenu.js
-  checksum: c8185a781e17cd27aba78759356fa197a412772487e3cb65f02b4cee25de6266
+  - filename: README.md
+    checksum: 8b9f898fc856660cbeca138f2ea3edb679b5d8d59093d06dc71f318cf2011252
 version: ""

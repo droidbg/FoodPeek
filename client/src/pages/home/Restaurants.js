@@ -1,16 +1,18 @@
 import RestaurantCard, {
   useWithTopRatedLabel,
 } from "../../components/RestaurantCard";
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import Shimmer from "../../components/Shimmer";
 import { RESTAURANT_LIST_URL } from "../../utils/constants";
 import { Link } from "react-router";
-import UserContext from "../../utils/UserContext";
+
+import { useAutoAnimate } from "@formkit/auto-animate/react";
 
 const Restaurants = () => {
   const [filteredList, setFilteredList] = useState([]);
   const [originalList, setOriginalList] = useState([]);
-  const { name, setName } = useContext(UserContext);
+
+  const [animationParent] = useAutoAnimate();
 
   const ResturantWithLabel = useWithTopRatedLabel(RestaurantCard);
 
@@ -45,17 +47,19 @@ const Restaurants = () => {
   return (
     <div>
       <div className="filter flex m-2 p-2">
-        <div className="search bg-green-100 m-2 px-2 py-2 rounded-lg shadow-md">
-          <label className="search-btn mr-2">Search</label>
+        <div className="search bg-blue-100 m-2 pl-2 py-1 rounded-lg shadow-md border border-slate-400">
+          <label className="search-btn mr-2">🔍</label>
           <input
-            className="border border-slate-900 mr-2 rounded-md pl-1"
+            className="bg-transparent mr-2 rounded-md pl-1 outline-none"
             type="text"
             onChange={(text) => {
               filterUsingSearch(text.target.value);
             }}
+            placeholder="I want to eat at...."
           />
         </div>
-        <div className="flex top-rated bg-yellow-100 m-2 px-2 py-1 rounded-lg shadow-lg text-center">
+        <div className="ml-4 my-auto">Filter By : </div>
+        <div className="flex top-rated bg-yellow-100 m-2 px-2 py-1 rounded-lg shadow-lg text-center hover:scale-105 hover:cursor-pointer hover:shadow-md hover:shadow-amber-300">
           <button
             onClick={() => {
               const filterList = originalList.filter((element) => {
@@ -68,22 +72,11 @@ const Restaurants = () => {
             Top Rated Resturants
           </button>
         </div>
-        <div className="m-2 p-2 rounded-lg bg-blue-200 ">
-          <label className="mr-2">Change Name</label>
-          <input
-            className="border border-black rounded-lg"
-            value={name}
-            onChange={(text) => {
-              // console.log(text.target.value);
-              setName(text.target.value);
-            }}
-          />
-        </div>
       </div>
       {filteredList.length === 0 ? (
         <Shimmer />
       ) : (
-        <div className="flex flex-wrap m-2 ml-12">
+        <div className="flex flex-wrap m-2 ml-12 " ref={animationParent}>
           {filteredList.map((data) => {
             const id = data.info.id;
             return (

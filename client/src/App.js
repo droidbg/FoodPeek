@@ -1,24 +1,27 @@
-import React, { lazy, Suspense, useState } from "react";
+import React, { lazy, Suspense } from "react";
 import ReactDOM from "react-dom/client";
-import Header from "./components/Header";
+
 import Home from "./pages/home/Home";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router";
 
 import About from "./components/About";
 import Error from "./components/Error";
-import RestaurantMenu from "./pages/menu/RestaurantMenu";
-import UserContext from "./utils/UserContext";
+
+import Footer from "./components/Footer/Footer";
+import Cart from "./pages/cart/Cart";
+import Header from "./components/Header/Header";
+import Menu from "./pages/menu/Menu";
 
 const Contact = lazy(() => import("./components/Contact"));
 
 const AppLayout = () => {
-  const [name, setName] = useState("Onions");
   return (
-    <div className="app-layout">
-      <UserContext.Provider value={{ name: name, setName: setName }}>
-        <Header />
+    <div className="app-layout flex flex-col  h-screen">
+      <Header />
+      <div className="flex-1">
         <Outlet />
-      </UserContext.Provider>
+      </div>
+      <Footer />
     </div>
   );
 };
@@ -46,7 +49,11 @@ const appRouter = createBrowserRouter([
       },
       {
         path: "/restaurant/:restaurantId",
-        element: <RestaurantMenu />,
+        element: <Menu />,
+      },
+      {
+        path: "/cart",
+        element: <Cart />,
       },
     ],
     errorElement: <Error />,
