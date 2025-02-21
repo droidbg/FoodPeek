@@ -5,7 +5,7 @@ const RestaurantCard = (props) => {
     data.info;
 
   return (
-    <div className="w-64 transition-all p-2 rounded-2xl bg-red-100 hover:bg-pink-100  hover:scale-95  hover:rounded-[4px] hover:shadow-[#f5474750] hover:shadow-lg">
+    <div className="w-48 md:w-56 lg:w-64 transition-all p-2 rounded-2xl bg-red-100 hover:bg-pink-100  hover:scale-95  hover:rounded-[4px] hover:shadow-[#f5474750] hover:shadow-lg">
       <div>
         <img
           className="rounded-lg h-44 object-cover w-full"

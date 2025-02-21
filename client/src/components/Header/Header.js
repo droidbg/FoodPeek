@@ -10,16 +10,25 @@ const Header = () => {
     <div className=" flex shadow-xl mb-1 justify-between bg-gradient-to-br z-fixed sticky backdrop-blur top-0 transition-[background-color] z-10 ">
       <div className="my-1 flex items-center">
         <Link to="/">
-          <img className="logo-img h-20 ml-5" src={logo} />
+          <img className="logo-img h-16 ml-5 md:h-20" src={logo} />
         </Link>
-        <span className="font-medium text-xl bg-[#fdf2f8] bg-opacity-20 rounded p-1">
+        <span className="font-medium text-lg md:text-xl bg-[#fdf2f8] bg-opacity-20 rounded p-1">
           ZONION
         </span>
       </div>
       <div>
         <ul className="flex m-2 p-4">
-          <li className="m-2 hover:cursor-default">
-            Online ⇝ {status ? "🟢 " : " 🔴 "}
+          <li className="m-2 hover:cursor-default flex ">
+            {status ? (
+              <>
+                <span className="md:flex hidden pr-1">Online ⇝ </span>
+                🟢
+              </>
+            ) : (
+              <>
+                <span className="md:flex hidden pr-1 ">Offline ⇝ </span>🔴
+              </>
+            )}
           </li>
 
           <li className={linkStyle}>
