@@ -9,6 +9,7 @@ import { Link } from "react-router";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
 
 const Restaurants = () => {
+  let indexSelect = 1;
   const [filteredList, setFilteredList] = useState([]);
   const [originalList, setOriginalList] = useState([]);
 
@@ -29,8 +30,17 @@ const Restaurants = () => {
 
     const json = await data.json();
 
+    const userAgent = navigator.userAgent;
+    if (/android|iphone/i.test(userAgent)) {
+      indexSelect = 2;
+    } else if (/windows|mac|linux/i.test(userAgent)) {
+      indexSelect = 1;
+    } else {
+      indexSelect = 1;
+    }
+
     const list =
-      json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
+      json?.data?.cards[indexSelect]?.card?.card?.gridElements?.infoWithStyle
         ?.restaurants;
     setOriginalList(list);
     setFilteredList(list);
@@ -73,11 +83,11 @@ const Restaurants = () => {
           </button>
         </div>
       </div>
-      {filteredList.length === 0 ? (
+      {filteredList?.length === 0 ? (
         <Shimmer />
       ) : (
         <div className="flex flex-wrap m-2 ml-12 " ref={animationParent}>
-          {filteredList.map((data) => {
+          {filteredList?.map((data) => {
             const id = data.info.id;
             return (
               <div className="m-2" key={id}>
