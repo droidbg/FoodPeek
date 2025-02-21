@@ -42,7 +42,13 @@ const appRouter = createBrowserRouter([
       {
         path: "/contact",
         element: (
-          <Suspense fallback={<p>Loading...</p>}>
+          <Suspense
+            fallback={
+              <div class="flex items-center justify-center min-h-full">
+                <p class="text-center">Loading.....</p>
+              </div>
+            }
+          >
             <Contact />
           </Suspense>
         ),
