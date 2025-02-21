@@ -6,7 +6,7 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <div className="w-full bg-black p-4 text-white">
+    <div className="w-screen bg-black p-4 text-white ">
       <div className="flex justify-around">
         <ImageSection />
         {footerList.map((item, index) => {

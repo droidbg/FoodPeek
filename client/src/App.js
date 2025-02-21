@@ -16,7 +16,7 @@ const Contact = lazy(() => import("./components/Contact"));
 
 const AppLayout = () => {
   return (
-    <div className="app-layout flex flex-col h-screen w-fit">
+    <div className="app-layout flex flex-col h-screen w-screen">
       <Header />
       <div className="flex-1">
         <Outlet />
