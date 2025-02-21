@@ -12,7 +12,7 @@ import Cart from "./pages/cart/Cart";
 import Header from "./components/Header/Header";
 import Menu from "./pages/menu/Menu";
 
-const Contact = lazy(() => import("./components/Contact"));
+const Contact = lazy(() => import("./components/Contact/Contact"));
 
 const AppLayout = () => {
   return (

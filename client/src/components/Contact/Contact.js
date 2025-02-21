@@ -3,7 +3,7 @@ const Contact = () => {
     <div>
       <section
         id="contact"
-        className="py-20     px-4 lg:px-20 transition-colors duration-300"
+        className="py-20  px-4 lg:px-20 transition-colors duration-300"
       >
         <div className="w-full flex justify-between flex-col md:flex-row mx-auto items-start gap-12">
           <div
