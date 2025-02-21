@@ -1,5 +1,5 @@
-<p align="center"><img align="center" height='100' src="./.github/image.png#gh-dark-mode-only"/></p>
-<p align="center"><img align="center"  height='100' src="./.github/logo.png#gh-light-mode-only"/> </p>
+<p align="center"><img align="center" height='100' src="./.github/logo2.webp#gh-dark-mode-only"/></p>
+<p align="center"><img align="center"  height='100' src="./.github/logo2.webp#gh-light-mode-only"/> </p>
 
 <h3 align="center">Food Delivery Application 🛒 (React and NestJS)!</h3>
 <img src="https://i.imgur.com/dBaSKWF.gif" height="20" width="100%">
@@ -32,9 +32,6 @@ Hosted **on [zonion.vercel.app](https://zonion.vercel.app),** this application b
 </p>
 
 https://github.com/user-attachments/assets/f34480c0-6c0a-4e66-8d9b-8f8977898d9b
-
-
-
 
 <!-- <p align="center"><img align="center" src="./.github/example-light.png#gh-light-mode-only"/></p> -->
 

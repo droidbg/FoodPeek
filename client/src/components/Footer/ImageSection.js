@@ -1,4 +1,4 @@
-import logo from "/public/logo.png";
+import logo from "/public/logo2.webp";
 const ImageSection = () => {
   return (
     <div className="w-24">
