@@ -12,10 +12,10 @@ class About extends React.Component {
   render() {
     return (
       <div className="about-page m-2 h-full">
-        <h1 className="font-bold text-2xl my-2">About Us</h1>
-
-        <UserCard name="First" />
-        <UserCard name="Second" />
+        <h1 className="font-bold text-2xl mt-2">About Us</h1>
+        <div className="flex h-5/6 justify-center items-center">
+          Coming Soon....
+        </div>
       </div>
     );
   }
