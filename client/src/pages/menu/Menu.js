@@ -38,7 +38,7 @@ const Menu = () => {
       </div>
 
       <div>
-        {filterCategory.map((element, index) => (
+        {filterCategory?.map((element, index) => (
           <MenuSection
             key={element.card.card.categoryId + index}
             data={element.card.card}
