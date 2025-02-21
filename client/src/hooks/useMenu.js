@@ -17,7 +17,7 @@ const useMenu = () => {
         headers: {
           "x-cors-api-key": process.env.API_KEY,
         },
-      }
+      },
     );
 
     const menuJson = await menuResponse.json();

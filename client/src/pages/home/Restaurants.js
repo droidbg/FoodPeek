@@ -48,7 +48,7 @@ const Restaurants = () => {
 
   const filterUsingSearch = (text) => {
     const filterSearch = originalList.filter((item) =>
-      item.info.name.toLowerCase().includes(text.toLowerCase())
+      item.info.name.toLowerCase().includes(text.toLowerCase()),
     );
 
     setFilteredList(filterSearch);

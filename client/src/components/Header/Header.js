@@ -9,13 +9,15 @@ const Header = () => {
 
   return (
     <div className="flex shadow-xl mb-1 justify-between bg-gradient-to-br sticky backdrop-blur top-0 transition-[background-color] z-10">
-      <div className="my-1 flex items-center">
+      <div>
         <Link to="/">
-          <img className="logo-img h-10 sm:h-14 md:h-20 ml-4" src={logo} />
+          <div className="my-1 flex items-center">
+            <img className="logo-img h-10 sm:h-14 md:h-20 ml-4" src={logo} />
+            <div className="font-medium text-sm sm:text-lg md:text-xl bg-[#fdf2f8] bg-opacity-20 rounded ml-2">
+              ZONION
+            </div>
+          </div>
         </Link>
-        <div className="font-medium text-sm sm:text-lg md:text-xl bg-[#fdf2f8] bg-opacity-20 rounded ml-2">
-          ZONION
-        </div>
       </div>
       <div>
         <ul className="flex m-2 p-4">
