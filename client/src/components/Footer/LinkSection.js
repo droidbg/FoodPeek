@@ -7,7 +7,7 @@ const LinkSection = ({ data }) => {
       {data.links.map((item, index) => (
         <div
           key={item.name + index}
-          className={`p-1 text-sm text-gray-400 hover:scale-95 hover:cursor-pointer hover:${linkColors[index]}`}
+          className={`p-1 text-sm text-gray-400 hover:scale-95 hover:cursor-pointer ${linkColors[index]}`}
         >
           {item.name}
         </div>
