@@ -88,7 +88,7 @@ Hosted **on [foodpeeek.vercel.app](https://foodpeeek.vercel.app/),** this applic
 
 # 🚀 Live Demo
 
-[🌍 FoodPeek Live](https://FoodPeek.vercel.app)
+[Visit FoodPeek Live](https://foodpeeek.vercel.app)
 
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif"/>
 
