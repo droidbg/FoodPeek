@@ -1,4 +1,4 @@
-<p align="center"><img align="center" height='100' src="./.github/logo.png#gh-dark-mode-only"/></p>
+<p align="center"><img align="center" height='100' src="./.github/logo2.png#gh-dark-mode-only"/></p>
 <p align="center"><img align="center"  height='100' src="./.github/logo.png#gh-light-mode-only"/> </p>
 
 <h3 align="center">FoodPeek: Food Delivery Application 🛒 (React and NestJS)!</h3>
