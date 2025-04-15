@@ -1,5 +1,5 @@
 import useOnlineStatus from "../../hooks/useOnlineStatus";
-import logo from "/public/logo2.webp";
+import logo from "/public/logo.png";
 import { Link } from "react-router";
 
 const Header = () => {
@@ -8,13 +8,16 @@ const Header = () => {
     "m-2 hover:text-orange-600 hover:scale-105 text-sm md:text-lg";
 
   return (
-    <div className="sticky top-0 z-10 mb-1 flex justify-between bg-gradient-to-br shadow-xl backdrop-blur transition-[background-color]">
+    <div className="sticky top-0 z-10 mb-1 flex items-center justify-between bg-gradient-to-br shadow-xl backdrop-blur transition-[background-color]">
       <div>
         <Link to="/">
           <div className="my-1 flex items-center">
-            <img className="logo-img ml-4 h-10 sm:h-14 md:h-20" src={logo} />
+            <img
+              className="logo-img r md:h-18 ml-4 h-10 to-pink-500 p-1 sm:h-14"
+              src={logo}
+            />
             <div className="ml-2 rounded bg-[#fdf2f8] bg-opacity-20 text-sm font-medium sm:text-lg md:text-xl">
-              ZONION
+              FoodPeek
             </div>
           </div>
         </Link>

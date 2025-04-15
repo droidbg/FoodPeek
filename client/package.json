@@ -1,5 +1,5 @@
 {
-  "name": "zonion-app",
+  "name": "foodpeek-app",
   "version": "1.0.0",
   "description": "This is a food delivery website",
   "scripts": {
@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/droidbg/Zonion.git"
+    "url": "git+https://github.com/droidbg/FoodPeek.git"
   },
   "author": "Binni & Gorika",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/droidbg/Zonion/issues"
+    "url": "https://github.com/droidbg/FoodPeek/issues"
   },
-  "homepage": "https://github.com/droidbg/Zonion#readme",
+  "homepage": "https://github.com/droidbg/FoodPeek#readme",
   "devDependencies": {
     "parcel": "^2.13.2",
     "postcss": "^8.4.49",

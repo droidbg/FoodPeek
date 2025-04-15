@@ -4,9 +4,9 @@
 <h3 align="center">Food Delivery Application 🛒 (React and NestJS)!</h3>
 <img src="https://i.imgur.com/dBaSKWF.gif" height="20" width="100%">
 
-🚀 Zonion is a React based food delivery application.
+🚀 FoodPeek is a React based food delivery application.
 
-Hosted **on [zonion.vercel.app](https://zonion.vercel.app),** this application brings a hassle-free way to explore and order from restaurants.
+Hosted **on [FoodPeek.vercel.app](https://FoodPeek.vercel.app),** this application brings a hassle-free way to explore and order from restaurants.
 
 <img src="https://i.imgur.com/dBaSKWF.gif" height="20" width="100%">
 
@@ -26,7 +26,7 @@ Hosted **on [zonion.vercel.app](https://zonion.vercel.app),** this application b
 # Example
 
 <p align="center">
-<a href="https://zonion.vercel.app">
+<a href="https://FoodPeek.vercel.app">
 <img align="center" src="./.github/example.png"/>
 </a>
 </p>
@@ -87,7 +87,7 @@ https://github.com/user-attachments/assets/f34480c0-6c0a-4e66-8d9b-8f8977898d9b
 
 # 🚀 Live Demo
 
-[🌍 Zonion Live](https://zonion.vercel.app)
+[🌍 FoodPeek Live](https://FoodPeek.vercel.app)
 
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif"/>
 
@@ -96,8 +96,8 @@ https://github.com/user-attachments/assets/f34480c0-6c0a-4e66-8d9b-8f8977898d9b
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/droidbg/Zonion.git
-cd zonion
+git clone https://github.com/droidbg/FoodPeek.git
+cd FoodPeek
 ```
 
 ### 2. Start Server
@@ -226,7 +226,7 @@ We welcome contributions! Feel free to open issues and pull requests.
 This project is licensed under the MIT License.
 
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif"/>
-Enjoy fast, seamless food and grocery delivery with Zonion!! 🚀
+Enjoy fast, seamless food and grocery delivery with FoodPeek!! 🚀
 
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif"/>
 
@@ -241,3 +241,5 @@ Enjoy fast, seamless food and grocery delivery with Zonion!! 🚀
 -> Create a .env file and your CORS Proxy API key in it
 
 -> https://designer.mocky.io/design or create own server on vercel or render.com -->
+<!-- #653ADB -->
+<!-- #0093fb -->
