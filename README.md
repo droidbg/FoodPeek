@@ -1,12 +1,12 @@
 <p align="center"><img align="center" height='100' src="./.github/logo2.webp#gh-dark-mode-only"/></p>
 <p align="center"><img align="center"  height='100' src="./.github/logo2.webp#gh-light-mode-only"/> </p>
 
-<h3 align="center">Food Delivery Application 🛒 (React and NestJS)!</h3>
+<h3 align="center">FoodPeek: Food Delivery Application 🛒 (React and NestJS)!</h3>
 <img src="https://i.imgur.com/dBaSKWF.gif" height="20" width="100%">
 
 🚀 FoodPeek is a React based food delivery application.
 
-Hosted **on [FoodPeek.vercel.app](https://FoodPeek.vercel.app),** this application brings a hassle-free way to explore and order from restaurants.
+Hosted **on [foodpeeek.vercel.app](https://foodpeeek.vercel.app/),** this application brings a hassle-free way to explore and order from restaurants.
 
 <img src="https://i.imgur.com/dBaSKWF.gif" height="20" width="100%">
 
@@ -26,7 +26,7 @@ Hosted **on [FoodPeek.vercel.app](https://FoodPeek.vercel.app),** this applicati
 # Example
 
 <p align="center">
-<a href="https://FoodPeek.vercel.app">
+<a href="https://foodpeeek.vercel.app/">
 <img align="center" src="./.github/example.png"/>
 </a>
 </p>
