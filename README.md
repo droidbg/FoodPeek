@@ -1,7 +1,8 @@
 <p align="center"><img align="center" height='100' src="./.github/logo2.png#gh-dark-mode-only"/></p>
 <p align="center"><img align="center"  height='100' src="./.github/logo.png#gh-light-mode-only"/> </p>
 
-<h3 align="center">FoodPeek: Food Delivery Application 🛒 (React and NestJS)!</h3>
+<h3 align="center">FoodPeek: Food Delivery Application </h3>
+<h5>  Built with React!!!!!</h5>
 <img src="https://i.imgur.com/dBaSKWF.gif" height="20" width="100%">
 
 🚀 FoodPeek is a React based food delivery application.
@@ -31,7 +32,7 @@ Hosted **on [foodpeeek.vercel.app](https://foodpeeek.vercel.app/),** this applic
 </a>
 </p>
 
-https://github.com/user-attachments/assets/f34480c0-6c0a-4e66-8d9b-8f8977898d9b
+<!-- https://github.com/user-attachments/assets/f34480c0-6c0a-4e66-8d9b-8f8977898d9b -->
 
 <!-- <p align="center"><img align="center" src="./.github/example-light.png#gh-light-mode-only"/></p> -->
 
@@ -100,15 +101,15 @@ git clone https://github.com/droidbg/FoodPeek.git
 cd FoodPeek
 ```
 
-### 2. Start Server
+<!-- ### 2. Start Server
 
 ```sh
 cd server
 npm install
 npm start
-```
+``` -->
 
-### 3. Start React App
+### 2. Start React App
 
 ```bash
 cd ../client
@@ -116,7 +117,7 @@ npm install
 npm start
 ```
 
-### 4. Set Up Environment Variables
+### 3. Set Up Environment Variables
 
 Create a `.env` file in the client directory and add the following variables:
 
@@ -124,9 +125,6 @@ Create a `.env` file in the client directory and add the following variables:
 # CORS key
 API_KEY=your_cors_here
 
-
-# Database URL (Posgres by default)
-DATABASE_URL=your_db_url
 ```
 
 <!--
