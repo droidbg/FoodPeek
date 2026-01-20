@@ -1,4 +1,4 @@
-import { footerList } from "../../utils/footer-list";
+import { footerList } from "../../../utils/footer-list";
 import ImageSection from "./ImageSection";
 import LinkSection from "./LinkSection";
 

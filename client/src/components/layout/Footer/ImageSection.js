@@ -1,4 +1,4 @@
-import logo from "/public/logo.png";
+const logo = new URL("../../../assets/logo.png", import.meta.url).href;
 const ImageSection = () => {
   return (
     <div className="w-24">

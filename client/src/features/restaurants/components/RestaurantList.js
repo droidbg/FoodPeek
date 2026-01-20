@@ -3,11 +3,11 @@ import { useMemo, useState } from "react";
 import { Link } from "react-router";
 import RestaurantCard, {
   useWithTopRatedLabel,
-} from "../../components/common/RestaurantCard";
-import Shimmer from "../../components/common/Shimmer";
-import { useRestaurants } from "../../hooks/useRestaurants";
+} from "../../../components/common/RestaurantCard";
+import Shimmer from "../../../components/common/Shimmer";
+import { useRestaurants } from "../../../hooks/useRestaurants";
 
-const Restaurants = () => {
+const RestaurantList = () => {
   const [searchText, setSearchText] = useState("");
   const [ratingFilter, setRatingFilter] = useState(null);
 
@@ -140,4 +140,4 @@ const Restaurants = () => {
     </div>
   );
 };
-export default Restaurants;
+export default RestaurantList;

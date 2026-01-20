@@ -1,4 +1,4 @@
-import { linkColors } from "../../utils/colors";
+import { linkColors } from "../../../utils/colors";
 
 const LinkSection = ({ data }) => {
   return (

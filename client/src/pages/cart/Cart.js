@@ -1,4 +1,4 @@
-import cart from "../../../public/cart.svg";
+const cart = new URL("../../assets/cart.svg", import.meta.url).href;
 const Cart = () => {
   return (
     <div className="flex items-center">

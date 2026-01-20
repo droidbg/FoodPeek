@@ -1,6 +1,6 @@
 import { Link } from "react-router";
-import useOnlineStatus from "../../hooks/useOnlineStatus";
-import logo from "/public/logo.png";
+import useOnlineStatus from "../../../hooks/useOnlineStatus";
+const logo = new URL("../../../assets/logo.png", import.meta.url).href;
 
 const Header = () => {
   const status = useOnlineStatus();

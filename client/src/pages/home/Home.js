@@ -1,8 +1,10 @@
-import Restaurants from "./Restaurants";
+import React from "react";
+import RestaurantList from "../../features/restaurants/components/RestaurantList";
+
 const Home = () => {
   return (
     <div className="home-page">
-      <Restaurants />
+      <RestaurantList />
     </div>
   );
 };
