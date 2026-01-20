@@ -1,6 +1,6 @@
-import { DEFAULT_FOOD_IMAGE, IMAGES_URL } from "../utils/constants";
-import NonVegSymbol from "./NonVegSymbol";
-import VegSymbol from "./VegSymbol";
+import NonVegSymbol from "components/common/NonVegSymbol";
+import VegSymbol from "components/common/VegSymbol";
+import { DEFAULT_FOOD_IMAGE, IMAGES_URL } from "utils/constants";
 
 const AccordianBody = ({ itemInfo }) => {
   const { name, price, description, imageId, isVeg } = itemInfo;
@@ -22,6 +22,7 @@ const AccordianBody = ({ itemInfo }) => {
           <img
             src={imageId ? IMAGES_URL + imageId : DEFAULT_FOOD_IMAGE}
             className="rounded-lg"
+            alt={name}
           />
         </div>
       </div>

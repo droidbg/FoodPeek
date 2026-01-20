@@ -4,7 +4,7 @@
  */
 
 const PROXY_URL = "https://proxy.cors.sh/";
-const API_KEY = process.env.API_KEY;
+const API_KEY = import.meta.env.VITE_API_KEY;
 
 /**
  * Base fetcher function for SWR

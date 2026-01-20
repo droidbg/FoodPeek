@@ -24,7 +24,8 @@ const Menu = () => {
         <img
           className="absolute top-0 left-0 h-full w-full rounded-lg object-cover"
           src="https://png.pngtree.com/background/20220923/original/pngtree-template-promotion-food-cute-color-picture-image_1918764.jpg"
-          alt="Background"
+          alt=""
+          role="presentation"
           width="1200"
           height="176"
         />

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { RESTAURANT_MENU_URL } from "../utils/constants";
 import { useParams } from "react-router";
+import { RESTAURANT_MENU_URL } from "../utils/constants";
 
 const useRestaurantMenu = () => {
   const { restaurantId } = useParams();
@@ -14,7 +14,7 @@ const useRestaurantMenu = () => {
       RESTAURANT_MENU_URL + "&restaurantId=" + restaurantId,
       {
         headers: {
-          "x-cors-api-key": process.env.API_KEY,
+          "x-cors-api-key": import.meta.env.VITE_API_KEY,
         },
       },
     );

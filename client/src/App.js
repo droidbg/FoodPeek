@@ -1,8 +1,8 @@
-import React, { lazy, Suspense } from "react";
+import { lazy, Suspense } from "react";
 import ReactDOM from "react-dom/client";
 
-import Home from "./pages/home/Home";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router";
+import Home from "./pages/home/Home";
 
 import About from "./components/ui/About";
 import Error from "./components/ui/Error";
@@ -20,9 +20,9 @@ const AppLayout = () => {
     <SWRProvider>
       <div className="app-layout flex h-screen w-screen flex-col">
         <Header />
-        <div className="flex-1">
+        <main className="flex-1">
           <Outlet />
-        </div>
+        </main>
         <Footer />
       </div>
     </SWRProvider>
