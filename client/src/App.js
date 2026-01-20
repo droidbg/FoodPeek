@@ -4,25 +4,28 @@ import ReactDOM from "react-dom/client";
 import Home from "./pages/home/Home";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router";
 
-import About from "./components/About";
-import Error from "./components/Error";
+import About from "./components/ui/About";
+import Error from "./components/ui/Error";
 
-import Footer from "./components/Footer/Footer";
-import Cart from "./pages/cart/Cart";
-import Header from "./components/Header/Header";
-import Menu from "./pages/menu/Menu";
+import Footer from "./components/layout/Footer/Footer";
+import Header from "./components/layout/Header/Header";
+import { SWRProvider } from "./lib/swr-provider";
 
-const Contact = lazy(() => import("./components/Contact/Contact"));
+const Contact = lazy(() => import("./components/ui/Contact"));
+const Menu = lazy(() => import("./pages/menu/Menu"));
+const Cart = lazy(() => import("./pages/cart/Cart"));
 
 const AppLayout = () => {
   return (
-    <div className="app-layout flex h-screen w-screen flex-col">
-      <Header />
-      <div className="flex-1">
-        <Outlet />
+    <SWRProvider>
+      <div className="app-layout flex h-screen w-screen flex-col">
+        <Header />
+        <div className="flex-1">
+          <Outlet />
+        </div>
+        <Footer />
       </div>
-      <Footer />
-    </div>
+    </SWRProvider>
   );
 };
 
@@ -44,8 +47,8 @@ const appRouter = createBrowserRouter([
         element: (
           <Suspense
             fallback={
-              <div class="flex min-h-full items-center justify-center">
-                <p class="text-center">Loading.....</p>
+              <div className="flex min-h-full items-center justify-center">
+                <p className="text-center">Loading…</p>
               </div>
             }
           >
@@ -55,11 +58,31 @@ const appRouter = createBrowserRouter([
       },
       {
         path: "/restaurant/:restaurantId",
-        element: <Menu />,
+        element: (
+          <Suspense
+            fallback={
+              <div className="flex min-h-full items-center justify-center">
+                <p className="text-center">Loading…</p>
+              </div>
+            }
+          >
+            <Menu />
+          </Suspense>
+        ),
       },
       {
         path: "/cart",
-        element: <Cart />,
+        element: (
+          <Suspense
+            fallback={
+              <div className="flex min-h-full items-center justify-center">
+                <p className="text-center">Loading…</p>
+              </div>
+            }
+          >
+            <Cart />
+          </Suspense>
+        ),
       },
     ],
     errorElement: <Error />,

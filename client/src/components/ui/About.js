@@ -1,5 +1,3 @@
-import UserCard from "./UserCard";
-
 import React from "react";
 
 class About extends React.Component {

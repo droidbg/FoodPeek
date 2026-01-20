@@ -1,70 +1,67 @@
-import { useState, useEffect } from "react";
+import useSWR from "swr";
 import { useParams } from "react-router";
-import { RESTAURANT_MENU_URL } from "../utils/constants";
+import { fetcher, API_ENDPOINTS } from "../services/api";
 
+/**
+ * Custom hook to fetch restaurant menu data
+ * @returns {object} - Menu data with restaurant info and categories
+ */
 const useMenu = () => {
   const { restaurantId } = useParams();
-  const [menuData, setMenuData] = useState(null);
-  let indexSelect = 4;
-  useEffect(() => {
-    fetchData();
-  }, []);
 
-  const fetchData = async () => {
-    const menuResponse = await fetch(
-      RESTAURANT_MENU_URL + "&restaurantId=" + restaurantId,
-      {
-        headers: {
-          "x-cors-api-key": process.env.API_KEY,
-        },
-      },
-    );
-
-    const menuJson = await menuResponse.json();
-    const data = menuJson.data;
-    const userAgent = navigator.userAgent;
-    if (/android|iphone/i.test(userAgent)) {
-      indexSelect = 5;
-    } else if (/windows|mac|linux/i.test(userAgent)) {
-      indexSelect = 4;
-    } else {
-      indexSelect = 4;
+  const { data, error, isLoading } = useSWR(
+    restaurantId ? API_ENDPOINTS.RESTAURANT_MENU(restaurantId) : null,
+    fetcher,
+    {
+      revalidateOnFocus: false,
+      dedupingInterval: 1300000,  
     }
+  );
 
-    const filterCategory = data?.cards[
-      indexSelect
-    ]?.groupedCard?.cardGroupMap?.REGULAR?.cards?.filter((element) => {
-      return (
-        element.card.card["@type"] ==
-        "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
-      );
-    });
+  if (isLoading || !data) return null;
+  if (error) return null;
 
-    const {
-      name,
-      avgRating,
-      totalRatingsString,
-      costForTwoMessage,
-      cuisines,
-      areaName,
-      locality,
-      city,
-    } = data?.cards[2]?.card?.card?.info;
-    // console.log(data);
+  // Determine device type and get appropriate index
+  const userAgent = navigator.userAgent;
+  const indexSelect = /android|iphone/i.test(userAgent) ? 5 : 4;
 
-    const result = {
-      name,
-      avgRating,
-      totalRatingsString,
-      costForTwoMessage,
-      cuisines,
-      filterCategory,
-      areaName,
-      locality,
-      city,
-    };
-    setMenuData(result);
+  const menuData = data?.data;
+
+  // Filter menu categories
+  const filterCategory = menuData?.cards[
+    indexSelect
+  ]?.groupedCard?.cardGroupMap?.REGULAR?.cards?.filter((element) => {
+    return (
+      element.card.card["@type"] ===
+      "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
+    );
+  });
+
+  // Extract restaurant info
+  const {
+    name,
+    avgRating,
+    totalRatingsString,
+    costForTwoMessage,
+    cuisines,
+    areaName,
+    locality,
+    city,
+  } = menuData?.cards[2]?.card?.card?.info || {};
+
+  return {
+    name,
+    avgRating,
+    totalRatingsString,
+    costForTwoMessage,
+    cuisines,
+    filterCategory,
+    areaName,
+    locality,
+    city,
+    isLoading,
+    isError: error,
   };
-  return menuData;
 };
+
 export default useMenu;

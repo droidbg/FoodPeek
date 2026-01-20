@@ -1,93 +1,127 @@
+import { useAutoAnimate } from "@formkit/auto-animate/react";
+import { useMemo, useState } from "react";
+import { Link } from "react-router";
 import RestaurantCard, {
   useWithTopRatedLabel,
-} from "../../components/RestaurantCard";
-import { useEffect, useState, useRef } from "react";
-import Shimmer from "../../components/Shimmer";
-import { RESTAURANT_LIST_URL } from "../../utils/constants";
-import { Link } from "react-router";
-
-import { useAutoAnimate } from "@formkit/auto-animate/react";
+} from "../../components/common/RestaurantCard";
+import Shimmer from "../../components/common/Shimmer";
+import { useRestaurants } from "../../hooks/useRestaurants";
 
 const Restaurants = () => {
-  let indexSelect = 1;
-  const [filteredList, setFilteredList] = useState([]);
-  const [originalList, setOriginalList] = useState([]);
+  const [searchText, setSearchText] = useState("");
+  const [ratingFilter, setRatingFilter] = useState(null);
 
   const [animationParent] = useAutoAnimate();
 
+  // Use SWR hook for data fetching
+  const { restaurants, isLoading, isError } = useRestaurants();
+
   const ResturantWithLabel = useWithTopRatedLabel(RestaurantCard);
 
-  useEffect(() => {
-    fetchData();
-  }, []);
+  // Memoized filtered list for better performance
+  const filteredList = useMemo(() => {
+    if (!restaurants) return [];
 
-  const fetchData = async () => {
-    const data = await fetch(RESTAURANT_LIST_URL, {
-      headers: {
-        "x-cors-api-key": process.env.API_KEY,
-      },
-    });
+    let filtered = restaurants;
 
-    const json = await data.json();
-
-    const userAgent = navigator.userAgent;
-    if (/android|iphone/i.test(userAgent)) {
-      indexSelect = 2;
-    } else if (/windows|mac|linux/i.test(userAgent)) {
-      indexSelect = 1;
-    } else {
-      indexSelect = 1;
+    // Apply search filter
+    if (searchText) {
+      const lowerText = searchText.toLowerCase();
+      filtered = filtered.filter((item) =>
+        item.info.name.toLowerCase().includes(lowerText),
+      );
     }
 
-    const list =
-      json?.data?.cards[indexSelect]?.card?.card?.gridElements?.infoWithStyle
-        ?.restaurants;
-    setOriginalList(list);
-    setFilteredList(list);
+    // Apply rating filter
+    if (ratingFilter) {
+      filtered = filtered.filter(
+        (element) => element.info.avgRating >= ratingFilter,
+      );
+    }
+
+    return filtered;
+  }, [restaurants, searchText, ratingFilter]);
+
+  const handleSearchChange = (e) => {
+    setSearchText(e.target.value);
   };
 
-  const filterUsingSearch = (text) => {
-    const filterSearch = originalList.filter((item) =>
-      item.info.name.toLowerCase().includes(text.toLowerCase()),
+  const handleRatingFilter = () => {
+    setRatingFilter(ratingFilter === 4.5 ? null : 4.5);
+  };
+
+  // Loading state
+  if (isLoading) {
+    return <Shimmer />;
+  }
+
+  // Error state
+  if (isError) {
+    return (
+      <div className="flex min-h-screen items-center justify-center">
+        <p className="text-xl text-red-500">
+          Failed to load restaurants. Please try again later.
+        </p>
+      </div>
     );
-
-    setFilteredList(filterSearch);
-  };
+  }
 
   return (
     <div>
       <div className="m-2 flex p-2 filter">
         <div className="search m-2 rounded-lg border border-slate-400 bg-blue-100 py-1 pl-2 shadow-md">
-          <label className="search-btn mr-2">🔍</label>
+          <label htmlFor="restaurant-search" className="search-btn mr-2">
+            🔍
+          </label>
           <input
-            className="w-36 rounded-md bg-transparent pl-1 outline-none md:mr-2 md:w-fit"
+            id="restaurant-search"
+            name="search"
+            autoComplete="off"
+            className="w-36 rounded-md bg-transparent pl-1 focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:outline-none md:mr-2 md:w-fit"
             type="text"
-            onChange={(text) => {
-              filterUsingSearch(text.target.value);
-            }}
-            placeholder="I want to eat at...."
+            value={searchText}
+            onChange={handleSearchChange}
+            placeholder="I want to eat at…"
           />
         </div>
         <div className="my-auto ml-2 md:ml-4">Filter By : </div>
-        <div className="top-rated m-2 flex rounded-lg bg-yellow-100 px-2 py-1 text-center shadow-lg hover:scale-105 hover:cursor-pointer hover:shadow-md hover:shadow-amber-300">
-          <button
-            onClick={() => {
-              const filterList = originalList.filter((element) => {
-                return element.info.avgRating >= 4.5;
-              });
-
-              setFilteredList(filterList);
-            }}
-          >
-            Top Rated Resturants
+        <div
+          className={`top-rated m-2 flex rounded-lg px-2 py-1 text-center shadow-lg hover:scale-105 hover:cursor-pointer hover:shadow-md hover:shadow-amber-300 ${
+            ratingFilter === 4.5 ? "bg-amber-200" : "bg-yellow-100"
+          }`}
+        >
+          <button onClick={handleRatingFilter}>
+            {ratingFilter === 4.5 ? "Show All" : "Top Rated Restaurants"}
           </button>
         </div>
       </div>
-      {filteredList?.length === 0 ? (
-        <Shimmer />
+      {filteredList.length === 0 ? (
+        <div className="flex min-h-[50vh] items-center justify-center">
+          <p className="text-xl text-gray-500">No restaurants found</p>
+        </div>
+      ) : filteredList.length > 50 ? (
+        <div
+          className="m-2 ml-12 flex flex-wrap"
+          style={{ contentVisibility: "auto" }}
+        >
+          {filteredList.map((data) => {
+            const id = data.info.id;
+            return (
+              <div className="m-2" key={id}>
+                <Link to={"/restaurant/" + id}>
+                  {data.info.avgRating >= 4.5 ? (
+                    <ResturantWithLabel data={data} />
+                  ) : (
+                    <RestaurantCard data={data} />
+                  )}
+                </Link>
+              </div>
+            );
+          })}
+        </div>
       ) : (
         <div className="m-2 ml-12 flex flex-wrap" ref={animationParent}>
-          {filteredList?.map((data) => {
+          {filteredList.map((data) => {
             const id = data.info.id;
             return (
               <div className="m-2" key={id}>

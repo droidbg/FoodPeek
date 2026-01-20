@@ -10,8 +10,11 @@ const RestaurantCard = (props) => {
         <img
           className="h-44 w-full rounded-lg object-cover"
           src={IMAGES_URL + cloudinaryImageId}
+          alt={`${name} restaurant`}
+          width="256"
+          height="176"
         ></img>
-        <h4 className="my-2 overflow-hidden text-ellipsis whitespace-nowrap font-bold">
+        <h4 className="my-2 overflow-hidden font-bold text-ellipsis whitespace-nowrap">
           {name}
         </h4>
         <h4> {costForTwo} </h4>

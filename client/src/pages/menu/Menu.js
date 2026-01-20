@@ -1,10 +1,10 @@
-import Shimmer from "../../components/Shimmer";
+import Shimmer from "../../components/common/Shimmer";
 
+import NoInternet from "../../components/common/NoInternet";
 import useOnlineStatus from "../../hooks/useOnlineStatus";
-import NoInternet from "../../components/NoInternet";
 
+import MenuSection from "../../features/menu/components/MenuSection";
 import useMenu from "../../hooks/useMenu";
-import MenuSection from "../../components/Menu/MenuSection";
 
 const Menu = () => {
   const menuData = useMenu();
@@ -22,9 +22,11 @@ const Menu = () => {
     <div>
       <div className="relative h-44 w-full">
         <img
-          className="absolute left-0 top-0 h-full w-full rounded-lg object-cover"
+          className="absolute top-0 left-0 h-full w-full rounded-lg object-cover"
           src="https://png.pngtree.com/background/20220923/original/pngtree-template-promotion-food-cute-color-picture-image_1918764.jpg"
           alt="Background"
+          width="1200"
+          height="176"
         />
         <div className="absolute inset-0 flex flex-col items-center justify-center">
           <div className="font-[Tangerine] text-3xl font-extrabold md:text-7xl">

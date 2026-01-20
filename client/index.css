@@ -12,6 +12,12 @@ body {
   background-color: #fdf2f8;
 }
 
+button,
+a,
+[role="button"] {
+  touch-action: manipulation;
+}
+
 .top-rated {
   position: relative;
 }

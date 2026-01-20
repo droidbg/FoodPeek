@@ -1,6 +1,6 @@
+import { footerList } from "../../utils/footer-list";
 import ImageSection from "./ImageSection";
 import LinkSection from "./LinkSection";
-import { footerList } from "../../utils/footer-list";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();

@@ -1,4 +1,4 @@
-import { IMAGES_URL, DEFAULT_FOOD_IMAGE } from "../utils/constants";
+import { DEFAULT_FOOD_IMAGE, IMAGES_URL } from "../utils/constants";
 import NonVegSymbol from "./NonVegSymbol";
 import VegSymbol from "./VegSymbol";
 
@@ -25,7 +25,7 @@ const AccordianBody = ({ itemInfo }) => {
           />
         </div>
       </div>
-      <div className="border-b-1 mt-3 border border-pink-200 shadow"></div>
+      <div className="mt-3 border border-b-1 border-pink-200 shadow"></div>
     </div>
   );
 };
