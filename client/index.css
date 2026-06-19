@@ -18,6 +18,85 @@ body {
   --app-header-h: 80px;
 }
 
+/* ---------- Menu page: "Sunlit Bistro" ---------- */
+
+/* Warm gradient-mesh hero backdrop. */
+.fp-hero {
+  background:
+    radial-gradient(60% 80% at 12% 0%, #ffe3f0 0%, transparent 60%),
+    radial-gradient(48% 70% at 92% 4%, #fff0c9 0%, transparent 55%),
+    radial-gradient(70% 90% at 82% 100%, #ffd9e6 0%, transparent 62%),
+    linear-gradient(180deg, #fff8fc 0%, #fdf2f8 100%);
+}
+
+/* Fine grain overlay for depth. */
+.fp-grain::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.05;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  /* Hero elements rise in on load. */
+  .fp-rise {
+    opacity: 0;
+    animation: fp-rise 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation-delay: var(--reveal-delay, 0ms);
+  }
+
+  /* Section cards rise in when their section scrolls into view. */
+  .fp-reveal {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  .fp-inview .fp-reveal {
+    animation: fp-rise 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation-delay: var(--reveal-delay, 0ms);
+  }
+
+  @keyframes fp-rise {
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  @keyframes fp-pop {
+    0% {
+      transform: scale(1);
+    }
+    45% {
+      transform: scale(1.35);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  .fp-pop {
+    animation: fp-pop 0.32s ease;
+  }
+}
+
+/* Slow drift for decorative hero blobs. */
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes fp-float {
+    0%,
+    100% {
+      transform: translate3d(0, 0, 0);
+    }
+    50% {
+      transform: translate3d(0, -22px, 0);
+    }
+  }
+  .fp-float {
+    animation: fp-float 9s ease-in-out infinite;
+  }
+}
+
 button,
 a,
 [role="button"] {

@@ -3,6 +3,7 @@ import { useParams } from "react-router";
 import { fetcher, API_ENDPOINTS } from "../services/api";
 import { SAMPLE_MENU } from "../data/sampleMenu";
 import { isMobileDevice } from "../utils/device";
+import { ITEM_CATEGORY_TYPE } from "../utils/menu";
 
 /**
  * Custom hook to fetch restaurant menu data
@@ -50,10 +51,7 @@ const useMenu = () => {
     const filterCategory = menuData?.cards[
       indexSelect
     ]?.groupedCard?.cardGroupMap?.REGULAR?.cards?.filter((element) => {
-      return (
-        element?.card?.card?.["@type"] ===
-        "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
-      );
+      return element?.card?.card?.["@type"] === ITEM_CATEGORY_TYPE;
     });
 
     // Extract restaurant info

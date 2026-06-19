@@ -8,7 +8,7 @@
  *
  * Used as a graceful fallback when the menu API errors out or returns no
  * usable data. Item `imageId` is intentionally left empty so the UI renders
- * its built-in DEFAULT_FOOD_IMAGE instead of an invented (broken) URL.
+ * its gradient monogram placeholder instead of an invented (broken) URL.
  */
 
 /**
@@ -25,7 +25,7 @@ const makeItem = (id, name, priceInPaise, description, isVeg) => ({
       name,
       price: priceInPaise,
       description,
-      imageId: "", // falls back to DEFAULT_FOOD_IMAGE in MenuBody
+      imageId: "", // empty → gradient monogram placeholder in MenuItemCard
       isVeg: isVeg ? 1 : 0,
     },
   },
