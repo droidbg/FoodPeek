@@ -9,8 +9,8 @@ import AddControl from "./AddControl";
 
 /**
  * A single dish, presented as an elevated card: an image (or a deterministic
- * gradient monogram when there's no photo) with the veg badge and a floating
- * Add control, above the name, description and price.
+ * gradient monogram when there's no photo) with the veg badge, above the name,
+ * description, and a price + Add-control row.
  *
  * @param {{ info: object, index?: number }} props
  */
@@ -50,15 +50,7 @@ const MenuItemCard = ({ info, index = 0 }) => {
         <VegBadge veg={veg} className="absolute top-3 left-3" />
       </div>
 
-      <div className="flex flex-1 flex-col px-5 pb-5">
-        {/* Pulled up to sit on the image seam; outside the image's
-            overflow-hidden box so it is never clipped. */}
-        <div className="-mt-6 mb-2 flex justify-end">
-          <AddControl
-            item={{ id, name, price: pricePaise, imageId, isVeg: veg }}
-          />
-        </div>
-
+      <div className="flex flex-1 flex-col px-5 py-4">
         <h3 className="text-lg leading-tight font-bold text-[#3a2230]">
           {name}
         </h3>
@@ -67,9 +59,15 @@ const MenuItemCard = ({ info, index = 0 }) => {
             {description}
           </p>
         ) : null}
-        <span className="mt-auto w-fit rounded-full bg-pink-100/80 px-3 py-1 text-sm font-bold text-pink-700">
-          {formatRupees(pricePaise)}
-        </span>
+
+        <div className="mt-auto flex items-center justify-between gap-3 pt-4">
+          <span className="rounded-full bg-pink-100/80 px-3 py-1 text-sm font-bold text-pink-700">
+            {formatRupees(pricePaise)}
+          </span>
+          <AddControl
+            item={{ id, name, price: pricePaise, imageId, isVeg: veg }}
+          />
+        </div>
       </div>
     </article>
   );
