@@ -1,6 +1,7 @@
 import Shimmer from "../../components/common/Shimmer";
 
 import NoInternet from "../../components/common/NoInternet";
+import SampleDataNotice from "../../components/common/SampleDataNotice";
 import useOnlineStatus from "../../hooks/useOnlineStatus";
 
 import MenuSection from "../../features/menu/components/MenuSection";
@@ -16,10 +17,21 @@ const Menu = () => {
   if (menuData === null) {
     return <Shimmer />;
   }
-  const { name, cuisines, filterCategory, areaName, locality, city } = menuData;
+  const {
+    name,
+    cuisines = [],
+    filterCategory,
+    areaName,
+    locality,
+    city,
+    isSample,
+  } = menuData;
 
   return (
     <div>
+      {isSample && (
+        <SampleDataNotice message="Showing a sample menu — live menu is currently unavailable." />
+      )}
       <div className="relative h-44 w-full">
         <img
           className="absolute top-0 left-0 h-full w-full rounded-lg object-cover"
