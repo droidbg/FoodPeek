@@ -1,6 +1,7 @@
 import useSWR from "swr";
 import { fetcher, API_ENDPOINTS } from "../services/api";
 import { SAMPLE_RESTAURANTS } from "../data/sampleRestaurants";
+import { isMobileDevice } from "../utils/device";
 
 /**
  * Custom hook to fetch restaurant list
@@ -24,8 +25,7 @@ export const useRestaurants = (lat, lng) => {
   const getRestaurantList = () => {
     if (!data) return null;
 
-    const userAgent = navigator.userAgent;
-    const indexSelect = /android|iphone/i.test(userAgent) ? 2 : 1;
+    const indexSelect = isMobileDevice() ? 2 : 1;
 
     return (
       data?.data?.cards[indexSelect]?.card?.card?.gridElements?.infoWithStyle

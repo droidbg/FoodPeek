@@ -2,6 +2,7 @@ import useSWR from "swr";
 import { useParams } from "react-router";
 import { fetcher, API_ENDPOINTS } from "../services/api";
 import { SAMPLE_MENU } from "../data/sampleMenu";
+import { isMobileDevice } from "../utils/device";
 
 /**
  * Custom hook to fetch restaurant menu data
@@ -32,8 +33,7 @@ const useMenu = () => {
 
   try {
     // Determine device type and get appropriate index
-    const userAgent = navigator.userAgent;
-    const indexSelect = /android|iphone/i.test(userAgent) ? 5 : 4;
+    const indexSelect = isMobileDevice() ? 5 : 4;
 
     const menuData = data?.data;
 

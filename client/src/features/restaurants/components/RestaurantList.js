@@ -8,6 +8,10 @@ import SampleDataNotice from "../../../components/common/SampleDataNotice";
 import Shimmer from "../../../components/common/Shimmer";
 import { useRestaurants } from "../../../hooks/useRestaurants";
 
+// Hoisted to module scope: the wrapped component is stable across renders, so
+// labeled cards don't remount on every keystroke (see rerender-no-inline-components).
+const ResturantWithLabel = useWithTopRatedLabel(RestaurantCard);
+
 const RestaurantList = () => {
   const [searchText, setSearchText] = useState("");
   const [ratingFilter, setRatingFilter] = useState(null);
@@ -17,30 +21,21 @@ const RestaurantList = () => {
   // Use SWR hook for data fetching. Falls back to sample data on error/empty.
   const { restaurants, isLoading, isSample } = useRestaurants();
 
-  const ResturantWithLabel = useWithTopRatedLabel(RestaurantCard);
-
-  // Memoized filtered list for better performance
+  // Memoized filtered list — search and rating applied in a single pass.
   const filteredList = useMemo(() => {
     if (!restaurants) return [];
 
-    let filtered = restaurants;
+    const lowerText = searchText.toLowerCase();
 
-    // Apply search filter
-    if (searchText) {
-      const lowerText = searchText.toLowerCase();
-      filtered = filtered.filter((item) =>
-        item.info.name.toLowerCase().includes(lowerText),
-      );
-    }
-
-    // Apply rating filter
-    if (ratingFilter) {
-      filtered = filtered.filter(
-        (element) => element.info.avgRating >= ratingFilter,
-      );
-    }
-
-    return filtered;
+    return restaurants.filter((item) => {
+      if (searchText && !item.info.name.toLowerCase().includes(lowerText)) {
+        return false;
+      }
+      if (ratingFilter && item.info.avgRating < ratingFilter) {
+        return false;
+      }
+      return true;
+    });
   }, [restaurants, searchText, ratingFilter]);
 
   const handleSearchChange = (e) => {
@@ -58,7 +53,7 @@ const RestaurantList = () => {
 
   return (
     <div>
-      {isSample && <SampleDataNotice />}
+      {isSample ? <SampleDataNotice /> : null}
       <div className="m-2 flex p-2 filter">
         <div className="search m-2 rounded-lg border border-slate-400 bg-blue-100 py-1 pl-2 shadow-md">
           <label htmlFor="restaurant-search" className="search-btn mr-2">

@@ -29,9 +29,9 @@ const Menu = () => {
 
   return (
     <div>
-      {isSample && (
+      {isSample ? (
         <SampleDataNotice message="Showing a sample menu — live menu is currently unavailable." />
-      )}
+      ) : null}
       <div className="relative h-44 w-full">
         <img
           className="absolute top-0 left-0 h-full w-full rounded-lg object-cover"
