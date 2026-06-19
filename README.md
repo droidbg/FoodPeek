@@ -41,16 +41,24 @@ Hosted **on [foodpeeek.vercel.app](https://foodpeeek.vercel.app/),** this applic
 ### ✅ Real-Time API Integration
 
 - **Live Swiggy APIs** for accurate menus, availability, and promotions.
+- **Graceful sample-data fallback** — if the live API is unavailable or returns nothing, the app shows a rich sample dataset (100+ restaurants and a full sample menu) behind a clear notice, so the UI never breaks.
 
 ### ⚡ Optimized Performance
 
 - **Lazy Loading & Code Splitting** to enhance loading times and responsiveness.
 - **Shimmer UI** for smooth loading effects.
+- **Installable PWA** with offline-aware online/offline status.
 
 ### 🔧 Efficient State Management
 
-- **Redux Toolkit** for centralized state management, ensuring a seamless experience.
+- **SWR** for data fetching, caching, and request deduplication.
+- **React Context + useReducer** for the shopping cart (persisted to `localStorage`).
 - **Custom Hooks** to improve code reusability and maintainability.
+
+### 🛒 Cart & Ordering
+
+- **Add-to-cart with quantity steppers** across the menu, a live floating order bar, and a header cart badge.
+- **Full cart page** with itemised bill (item total, delivery, taxes), place-order flow, and empty/placed states.
 
 ### 🔍 Advanced Search & Filtering
 
@@ -59,8 +67,8 @@ Hosted **on [foodpeeek.vercel.app](https://foodpeeek.vercel.app/),** this applic
 
 ### 🚀 Smooth User Experience
 
-- **React Router DOM** for seamless navigation.
-- **Detailed Restaurant Pages** with menus, reviews, and delivery estimates.
+- **React Router** for seamless navigation.
+- **Redesigned restaurant menu** with a gradient hero, sticky category navigation, and modern dish cards.
 - **404 Error Page** for handling navigation issues gracefully.
 - **Completely Responsive** design for an optimal experience on any device.
 
@@ -71,17 +79,19 @@ Hosted **on [foodpeeek.vercel.app](https://foodpeeek.vercel.app/),** this applic
 - 🌐 **Multi-Language Support**: Navigate in your preferred language.
 - 🌙 **Dark Mode**: A sleek, user-friendly dark theme.
 - 📍 **Location-Based Personalization**: Custom delivery location setup.
-- 🛒 **Enhanced Add-to-Cart & Checkout**: Smoother ordering process.
-- 💳 **Secure Payments**: Seamless and secure transactions.
+- 💳 **Real Checkout & Payments**: A backend with secure transactions and order tracking.
 - 🔐 **User Authentication**: Login/Sign-in with personalized services.
 
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif"/>
 
 # 💻 Tech Stack
 
-- **Frontend:** React, Redux Toolkit, Tailwind CSS, React Router
-- **Backend:** Node.js, Express.js
-- **Bundler:** Parcel
+- **Framework:** React 19
+- **Data Fetching:** SWR
+- **Routing:** React Router
+- **Styling:** Tailwind CSS v4
+- **Bundler:** Vite
+- **PWA & SEO:** vite-plugin-pwa
 - **Hosting:** Vercel
 
 <img src="https://i.imgur.com/dBaSKWF.gif" height="20" width="100%">
@@ -112,7 +122,7 @@ npm start
 ### 2. Start React App
 
 ```bash
-cd ../client
+cd client
 npm install
 npm start
 ```
@@ -122,8 +132,8 @@ npm start
 Create a `.env` file in the client directory and add the following variables:
 
 ```env
-# CORS key
-API_KEY=your_cors_here
+# CORS proxy key (https://cors.sh)
+VITE_API_KEY=your_cors_key_here
 
 ```
 

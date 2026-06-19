@@ -1,9 +1,11 @@
 import { Link } from "react-router";
+import { useCart } from "../../../context/CartContext";
 import useOnlineStatus from "../../../hooks/useOnlineStatus";
 const logo = new URL("../../../assets/logo.png", import.meta.url).href;
 
 const Header = () => {
   const status = useOnlineStatus();
+  const { count } = useCart();
   const linkStyle =
     "m-2 hover:text-orange-600 hover:scale-105 text-sm md:text-lg";
 
@@ -57,8 +59,16 @@ const Header = () => {
             </Link>
           </li>
           <li className={linkStyle}>
-            <Link to="/cart" className="link-tag">
+            <Link
+              to="/cart"
+              className="link-tag relative inline-flex items-center"
+            >
               Cart
+              {count > 0 ? (
+                <span className="ml-1 inline-flex h-5 min-w-5 items-center justify-center rounded-full bg-pink-600 px-1.5 text-xs font-bold text-white">
+                  {count}
+                </span>
+              ) : null}
             </Link>
           </li>
         </ul>

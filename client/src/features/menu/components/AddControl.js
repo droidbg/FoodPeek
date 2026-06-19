@@ -1,13 +1,13 @@
-import { useMenuCart } from "../context/MenuCartContext";
+import { useCart } from "../../../context/CartContext";
 
 /**
- * Add-to-order control. Renders an "ADD" button until the item is in the cart,
- * then morphs into a − / quantity / + stepper. Wired to the menu cart.
+ * Add-to-cart control. Renders an "ADD" button until the item is in the cart,
+ * then morphs into a − / quantity / + stepper. Wired to the global cart.
  *
- * @param {{ item: { id: string, name: string, price: number } }} props
+ * @param {{ item: { id: string, name: string, price: number, imageId?: string, isVeg?: boolean } }} props
  */
 const AddControl = ({ item }) => {
-  const { qtyOf, add, remove } = useMenuCart();
+  const { qtyOf, add, decrement } = useCart();
   const qty = qtyOf(item.id);
 
   if (qty === 0) {
@@ -27,7 +27,7 @@ const AddControl = ({ item }) => {
     <div className="flex items-center gap-3 rounded-xl bg-[#3a2230] px-2 py-1.5 text-white shadow-lg shadow-pink-900/25">
       <button
         type="button"
-        onClick={() => remove(item.id)}
+        onClick={() => decrement(item.id)}
         aria-label={`Remove one ${item.name}`}
         className="flex h-7 w-7 items-center justify-center rounded-lg text-lg leading-none transition hover:bg-white/15 active:scale-90"
       >
