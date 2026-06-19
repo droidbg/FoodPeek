@@ -48,20 +48,22 @@ const MenuItemCard = ({ info, index = 0 }) => {
         )}
 
         <VegBadge veg={veg} className="absolute top-3 left-3" />
+      </div>
 
-        <div className="absolute right-4 -bottom-5">
+      <div className="flex flex-1 flex-col px-5 pb-5">
+        {/* Pulled up to sit on the image seam; outside the image's
+            overflow-hidden box so it is never clipped. */}
+        <div className="-mt-6 mb-2 flex justify-end">
           <AddControl
             item={{ id, name, price: pricePaise, imageId, isVeg: veg }}
           />
         </div>
-      </div>
 
-      <div className="flex flex-1 flex-col gap-1.5 px-5 pt-8 pb-5">
         <h3 className="text-lg leading-tight font-bold text-[#3a2230]">
           {name}
         </h3>
         {description ? (
-          <p className="line-clamp-2 text-sm leading-relaxed text-[#3a2230]/55">
+          <p className="mt-1 line-clamp-2 text-sm leading-relaxed text-[#3a2230]/55">
             {description}
           </p>
         ) : null}
