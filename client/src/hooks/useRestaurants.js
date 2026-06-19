@@ -17,6 +17,8 @@ export const useRestaurants = (lat, lng) => {
     fetcher,
     {
       revalidateOnFocus: false,
+      revalidateOnReconnect: false,
+      shouldRetryOnError: false,
       dedupingInterval: 60000, // Cache for 1 minute
     },
   );
@@ -33,11 +35,12 @@ export const useRestaurants = (lat, lng) => {
     );
   };
 
-  // Still fetching: let the UI show its loading state.
-  if (isLoading) {
+  // Only show the loading state on the very first fetch. Once an error is
+  // latched we go straight to sample data and never flip back to the skeleton.
+  if (isLoading && !error) {
     return {
       restaurants: null,
-      isLoading,
+      isLoading: true,
       isError: error,
       isSample: false,
       mutate,

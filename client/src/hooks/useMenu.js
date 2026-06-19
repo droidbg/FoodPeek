@@ -18,18 +18,27 @@ const useMenu = () => {
     fetcher,
     {
       revalidateOnFocus: false,
+      revalidateOnReconnect: false,
+      shouldRetryOnError: false,
       dedupingInterval: 1300000,
     },
   );
 
-  // No restaurant in the route, or still fetching: show the loading state.
-  if (!restaurantId || isLoading) return null;
+  // No restaurant in the route: show the loading state.
+  if (!restaurantId) return null;
 
   // Sample menu carries the current fetch state alongside the static content.
   const sampleMenu = { ...SAMPLE_MENU, isLoading: false, isError: error };
 
-  // On error or a missing payload, fall back to the sample menu.
-  if (error || !data) return sampleMenu;
+  // Latch onto sample data once an error is seen so revalidation never flips
+  // the page back to the loading skeleton.
+  if (error) return sampleMenu;
+
+  // Initial fetch in flight.
+  if (isLoading) return null;
+
+  // Settled with no payload → fall back to the sample menu.
+  if (!data) return sampleMenu;
 
   try {
     // Determine device type and get appropriate index

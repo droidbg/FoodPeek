@@ -12,6 +12,12 @@ body {
   background-color: #fdf2f8;
 }
 
+:root {
+  /* Measured at runtime from the sticky app header; used to offset the
+     menu's sticky category bar and section scroll anchors. */
+  --app-header-h: 80px;
+}
+
 button,
 a,
 [role="button"] {

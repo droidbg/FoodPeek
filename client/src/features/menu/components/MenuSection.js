@@ -1,22 +1,31 @@
 import MenuBody from "./MenuBody";
 
-const MenuSection = ({ data }) => {
-  const { itemCards, title } = data;
+/**
+ * A menu category as an anchored section: a clean left-aligned heading with an
+ * item count, followed by horizontal item rows separated by hairline dividers.
+ * The `id` is the scroll target for the sticky CategoryNav, and `scroll-mt`
+ * keeps the heading clear of the sticky header + nav.
+ */
+const MenuSection = ({ id, data }) => {
+  const { itemCards = [], title } = data;
 
   return (
-    <div>
-      <div className="mt-12 flex w-full items-center justify-center">
-        <div className="w-full border-t border-dotted border-pink-400"> </div>
-        <span className="absolute skew-x-[-10deg] rounded-lg border bg-black p-1 px-2 text-white">
-          {title}
+    <section
+      id={id}
+      className="scroll-mt-[calc(var(--app-header-h)+64px)] py-6"
+    >
+      <h2 className="flex items-baseline gap-2 text-2xl font-bold text-pink-900">
+        {title}
+        <span className="text-sm font-normal text-pink-400">
+          ({itemCards.length})
         </span>
+      </h2>
+      <div className="divide-y divide-pink-100">
+        {itemCards.map((item) => (
+          <MenuBody itemInfo={item.card.info} key={item.card.info.id} />
+        ))}
       </div>
-      <div className="mt-10 mb-12 flex flex-wrap">
-        {itemCards.map((item) => {
-          return <MenuBody itemInfo={item.card.info} key={item.card.info.id} />;
-        })}
-      </div>
-    </div>
+    </section>
   );
 };
 
