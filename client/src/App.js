@@ -9,6 +9,7 @@ import Error from "./components/ui/Error";
 
 import Footer from "./components/layout/Footer/Footer";
 import Header from "./components/layout/Header/Header";
+import { CartProvider } from "./context/CartContext";
 import { SWRProvider } from "./lib/swr-provider";
 
 const Contact = lazy(() => import("./components/ui/Contact"));
@@ -25,13 +26,15 @@ const PageLoader = (
 const AppLayout = () => {
   return (
     <SWRProvider>
-      <div className="app-layout flex h-screen w-screen flex-col">
-        <Header />
-        <main className="flex-1">
-          <Outlet />
-        </main>
-        <Footer />
-      </div>
+      <CartProvider>
+        <div className="app-layout flex h-screen w-screen flex-col">
+          <Header />
+          <main className="flex-1">
+            <Outlet />
+          </main>
+          <Footer />
+        </div>
+      </CartProvider>
     </SWRProvider>
   );
 };

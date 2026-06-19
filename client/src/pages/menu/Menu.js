@@ -6,7 +6,6 @@ import CategoryNav from "../../features/menu/components/CategoryNav";
 import MenuHero from "../../features/menu/components/MenuHero";
 import MenuSection from "../../features/menu/components/MenuSection";
 import OrderBar from "../../features/menu/components/OrderBar";
-import { MenuCartProvider } from "../../features/menu/context/MenuCartContext";
 import useMenu from "../../hooks/useMenu";
 import useOnlineStatus from "../../hooks/useOnlineStatus";
 
@@ -62,36 +61,34 @@ const Menu = () => {
   const place = [locality, areaName, city].filter(Boolean).join(", ");
 
   return (
-    <MenuCartProvider>
-      <div className="min-h-screen bg-[#fdf2f8]">
-        {isSample ? (
-          <SampleDataNotice message="Showing a sample menu — live menu is currently unavailable." />
-        ) : null}
+    <div className="min-h-screen bg-[#fdf2f8]">
+      {isSample ? (
+        <SampleDataNotice message="Showing a sample menu — live menu is currently unavailable." />
+      ) : null}
 
-        <MenuHero
-          name={name}
-          cuisines={cuisines}
-          avgRating={avgRating}
-          totalRatingsString={totalRatingsString}
-          costForTwoMessage={costForTwoMessage}
-          place={place}
-        />
+      <MenuHero
+        name={name}
+        cuisines={cuisines}
+        avgRating={avgRating}
+        totalRatingsString={totalRatingsString}
+        costForTwoMessage={costForTwoMessage}
+        place={place}
+      />
 
-        <CategoryNav categories={categories} />
+      <CategoryNav categories={categories} />
 
-        <div className="mx-auto max-w-4xl px-5 pb-32">
-          {filterCategory.map((element, index) => (
-            <MenuSection
-              key={categories[index].id}
-              id={categories[index].id}
-              data={element.card.card}
-            />
-          ))}
-        </div>
-
-        <OrderBar />
+      <div className="mx-auto max-w-4xl px-5 pb-32">
+        {filterCategory.map((element, index) => (
+          <MenuSection
+            key={categories[index].id}
+            id={categories[index].id}
+            data={element.card.card}
+          />
+        ))}
       </div>
-    </MenuCartProvider>
+
+      <OrderBar />
+    </div>
   );
 };
 

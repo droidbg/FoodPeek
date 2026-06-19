@@ -1,13 +1,13 @@
 import { Link } from "react-router";
 import { formatRupees } from "../../../utils/menu";
-import { useMenuCart } from "../context/MenuCartContext";
+import { useCart } from "../../../context/CartContext";
 
 /**
  * Floating order summary. Stays tucked off-screen until the cart has items,
  * then slides up to show a live count + total with a CTA to the cart.
  */
 const OrderBar = () => {
-  const { count, totalPaise } = useMenuCart();
+  const { count, totalPaise } = useCart();
   const hasItems = count > 0;
 
   return (

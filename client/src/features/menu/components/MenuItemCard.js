@@ -1,3 +1,4 @@
+import VegBadge from "../../../components/common/VegBadge";
 import {
   dishGradient,
   dishImageUrl,
@@ -5,7 +6,6 @@ import {
   isVegItem,
 } from "../../../utils/menu";
 import AddControl from "./AddControl";
-import VegBadge from "./VegBadge";
 
 /**
  * A single dish, presented as an elevated card: an image (or a deterministic
@@ -50,7 +50,9 @@ const MenuItemCard = ({ info, index = 0 }) => {
         <VegBadge veg={veg} className="absolute top-3 left-3" />
 
         <div className="absolute right-4 -bottom-5">
-          <AddControl item={{ id, name, price: pricePaise }} />
+          <AddControl
+            item={{ id, name, price: pricePaise, imageId, isVeg: veg }}
+          />
         </div>
       </div>
 
