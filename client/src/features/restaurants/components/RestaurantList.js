@@ -10,7 +10,7 @@ import { useRestaurants } from "../../../hooks/useRestaurants";
 
 // Hoisted to module scope: the wrapped component is stable across renders, so
 // labeled cards don't remount on every keystroke (see rerender-no-inline-components).
-const ResturantWithLabel = useWithTopRatedLabel(RestaurantCard);
+const RestaurantWithLabel = useWithTopRatedLabel(RestaurantCard);
 
 const RestaurantList = () => {
   const [searchText, setSearchText] = useState("");
@@ -96,7 +96,7 @@ const RestaurantList = () => {
               <div className="m-2" key={id}>
                 <Link to={"/restaurant/" + id}>
                   {data.info.avgRating >= 4.5 ? (
-                    <ResturantWithLabel data={data} />
+                    <RestaurantWithLabel data={data} />
                   ) : (
                     <RestaurantCard data={data} />
                   )}
@@ -113,7 +113,7 @@ const RestaurantList = () => {
               <div className="m-2" key={id}>
                 <Link to={"/restaurant/" + id}>
                   {data.info.avgRating >= 4.5 ? (
-                    <ResturantWithLabel data={data} />
+                    <RestaurantWithLabel data={data} />
                   ) : (
                     <RestaurantCard data={data} />
                   )}

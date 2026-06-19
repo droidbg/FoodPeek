@@ -15,6 +15,13 @@ const Contact = lazy(() => import("./components/ui/Contact"));
 const Menu = lazy(() => import("./pages/menu/Menu"));
 const Cart = lazy(() => import("./pages/cart/Cart"));
 
+// Shared Suspense fallback for lazily-loaded routes.
+const PageLoader = (
+  <div className="flex min-h-full items-center justify-center">
+    <p className="text-center">Loading…</p>
+  </div>
+);
+
 const AppLayout = () => {
   return (
     <SWRProvider>
@@ -45,13 +52,7 @@ const appRouter = createBrowserRouter([
       {
         path: "/contact",
         element: (
-          <Suspense
-            fallback={
-              <div className="flex min-h-full items-center justify-center">
-                <p className="text-center">Loading…</p>
-              </div>
-            }
-          >
+          <Suspense fallback={PageLoader}>
             <Contact />
           </Suspense>
         ),
@@ -59,13 +60,7 @@ const appRouter = createBrowserRouter([
       {
         path: "/restaurant/:restaurantId",
         element: (
-          <Suspense
-            fallback={
-              <div className="flex min-h-full items-center justify-center">
-                <p className="text-center">Loading…</p>
-              </div>
-            }
-          >
+          <Suspense fallback={PageLoader}>
             <Menu />
           </Suspense>
         ),
@@ -73,13 +68,7 @@ const appRouter = createBrowserRouter([
       {
         path: "/cart",
         element: (
-          <Suspense
-            fallback={
-              <div className="flex min-h-full items-center justify-center">
-                <p className="text-center">Loading…</p>
-              </div>
-            }
-          >
+          <Suspense fallback={PageLoader}>
             <Cart />
           </Suspense>
         ),
@@ -89,6 +78,6 @@ const appRouter = createBrowserRouter([
   },
 ]);
 
-const rootElemenent = document.getElementById("root");
-const root = ReactDOM.createRoot(rootElemenent);
+const rootElement = document.getElementById("root");
+const root = ReactDOM.createRoot(rootElement);
 root.render(<RouterProvider router={appRouter} />);
