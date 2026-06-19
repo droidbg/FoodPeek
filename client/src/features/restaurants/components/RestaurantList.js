@@ -4,6 +4,7 @@ import { Link } from "react-router";
 import RestaurantCard, {
   useWithTopRatedLabel,
 } from "../../../components/common/RestaurantCard";
+import SampleDataNotice from "../../../components/common/SampleDataNotice";
 import Shimmer from "../../../components/common/Shimmer";
 import { useRestaurants } from "../../../hooks/useRestaurants";
 
@@ -13,8 +14,8 @@ const RestaurantList = () => {
 
   const [animationParent] = useAutoAnimate();
 
-  // Use SWR hook for data fetching
-  const { restaurants, isLoading, isError } = useRestaurants();
+  // Use SWR hook for data fetching. Falls back to sample data on error/empty.
+  const { restaurants, isLoading, isSample } = useRestaurants();
 
   const ResturantWithLabel = useWithTopRatedLabel(RestaurantCard);
 
@@ -55,19 +56,9 @@ const RestaurantList = () => {
     return <Shimmer />;
   }
 
-  // Error state
-  if (isError) {
-    return (
-      <div className="flex min-h-screen items-center justify-center">
-        <p className="text-xl text-red-500">
-          Failed to load restaurants. Please try again later.
-        </p>
-      </div>
-    );
-  }
-
   return (
     <div>
+      {isSample && <SampleDataNotice />}
       <div className="m-2 flex p-2 filter">
         <div className="search m-2 rounded-lg border border-slate-400 bg-blue-100 py-1 pl-2 shadow-md">
           <label htmlFor="restaurant-search" className="search-btn mr-2">
