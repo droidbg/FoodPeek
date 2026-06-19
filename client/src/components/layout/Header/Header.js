@@ -8,7 +8,10 @@ const Header = () => {
     "m-2 hover:text-orange-600 hover:scale-105 text-sm md:text-lg";
 
   return (
-    <div className="sticky top-0 z-10 mb-1 flex items-center justify-between bg-gradient-to-br shadow-xl backdrop-blur transition-[background-color]">
+    <div
+      data-app-header
+      className="sticky top-0 z-10 mb-1 flex items-center justify-between bg-gradient-to-br shadow-xl backdrop-blur transition-[background-color]"
+    >
       <div>
         <Link to="/">
           <div className="my-1 flex items-center">
