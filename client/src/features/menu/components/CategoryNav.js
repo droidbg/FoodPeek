@@ -1,19 +1,16 @@
 import { useEffect, useRef, useState } from "react";
 
 /**
- * Sticky horizontal category navigation for the menu page.
+ * Sticky, glassy category rail for the menu page. Tabs scroll their section to
+ * the top on click, and the active tab tracks the section in view via
+ * IntersectionObserver (scroll-spy). Offsets beneath the measured app header.
  *
- * Tabs scroll their matching section to the top on click, and the active tab
- * is kept in sync with the section currently in view via IntersectionObserver
- * (scroll-spy). The sticky offset sits just below the global app header.
- *
- * @param {{ categories: { id: string, title: string }[] }} props
+ * @param {{ categories: { id: string, title: string, count: number }[] }} props
  */
 const CategoryNav = ({ categories }) => {
   const [activeId, setActiveId] = useState(categories[0]?.id);
   const tabRefs = useRef({});
 
-  // Scroll-spy: highlight the section nearest the top of the viewport.
   useEffect(() => {
     const sections = categories
       .map((category) => document.getElementById(category.id))
@@ -28,18 +25,15 @@ const CategoryNav = ({ categories }) => {
           .sort(
             (a, b) => a.boundingClientRect.top - b.boundingClientRect.top,
           )[0];
-
         if (topMost) setActiveId(topMost.target.id);
       },
-      // Trigger the swap once a section crosses below the sticky bars.
-      { rootMargin: "-150px 0px -60% 0px", threshold: 0 },
+      { rootMargin: "-170px 0px -60% 0px", threshold: 0 },
     );
 
     sections.forEach((section) => observer.observe(section));
     return () => observer.disconnect();
   }, [categories]);
 
-  // Keep the active tab visible within the horizontal scroller.
   useEffect(() => {
     tabRefs.current[activeId]?.scrollIntoView({
       behavior: "smooth",
@@ -57,23 +51,33 @@ const CategoryNav = ({ categories }) => {
   if (categories.length === 0) return null;
 
   return (
-    <nav className="sticky top-[var(--app-header-h)] z-20 border-b border-pink-200 bg-[#fdf2f8] shadow-sm">
-      <div className="mx-auto flex max-w-4xl gap-2 overflow-x-auto px-5 py-2.5 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+    <nav className="sticky top-[var(--app-header-h)] z-20 border-y border-pink-100 bg-white/65 backdrop-blur-md">
+      <div className="mx-auto flex max-w-4xl gap-2 overflow-x-auto px-5 py-3 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
         {categories.map((category) => {
           const isActive = category.id === activeId;
           return (
             <button
               key={category.id}
-              ref={(el) => (tabRefs.current[category.id] = el)}
+              ref={(el) => {
+                tabRefs.current[category.id] = el;
+              }}
               onClick={() => handleClick(category.id)}
+              type="button"
               aria-current={isActive ? "true" : undefined}
-              className={`shrink-0 rounded-full px-4 py-1.5 text-sm font-semibold whitespace-nowrap transition-all duration-200 ${
+              className={`flex shrink-0 items-center gap-1.5 rounded-full px-4 py-1.5 text-sm font-semibold whitespace-nowrap transition-all duration-200 ${
                 isActive
-                  ? "bg-black text-white shadow-md shadow-black/20"
-                  : "bg-pink-100/70 text-pink-700 hover:bg-pink-200/80 hover:text-pink-900"
+                  ? "bg-gradient-to-br from-pink-500 to-rose-500 text-white shadow-md shadow-pink-300"
+                  : "bg-pink-50 text-pink-700 hover:bg-pink-100"
               }`}
             >
               {category.title}
+              <span
+                className={`rounded-full px-1.5 text-[11px] font-bold ${
+                  isActive ? "bg-white/25" : "bg-white/70 text-pink-500"
+                }`}
+              >
+                {category.count}
+              </span>
             </button>
           );
         })}
